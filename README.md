@@ -47,14 +47,20 @@ cd agentic_product_manager
 
 ## Recommended companion skills
 
-Install these alongside the toolkit to extend your workflow.
+These skills ship with the toolkit. To update them or add new ones, use `import-skill.sh`:
+
+```bash
+./import-skill.sh <repo-url> [--skill <name>] [--yes]
+```
+
+This downloads via `npx skills add`, copies the skill into `skills/` as a real directory, then cleans up all temporary files. Skills imported this way work with the existing `install.sh` pipeline.
 
 ### Find skills
 
 Discover and install skills from the open ecosystem. When you need a capability that isn't built in, ask your agent to find one.
 
 ```bash
-npx skills add https://github.com/vercel-labs/skills --skill find-skills
+./import-skill.sh https://github.com/vercel-labs/skills --skill find-skills
 ```
 
 Then ask your agent: "find a skill for X" or run `npx skills find [query]` directly.
@@ -66,7 +72,7 @@ Then ask your agent: "find a skill for X" or run `npx skills find [query]` direc
 Build your own skills to extend this toolkit or share with your team. The skill creator guides you through the full development process: plan, initialize, edit, package, and iterate.
 
 ```bash
-npx skills add https://github.com/anthropics/skills --skill skill-creator
+./import-skill.sh https://github.com/anthropics/skills --skill skill-creator
 ```
 
 Then ask your agent: "/skill-creator" to start building a new skill.
@@ -230,6 +236,7 @@ agentic-product-manager/
 ├── LICENSE (MIT)
 ├── metadata.json
 ├── install.sh
+├── import-skill.sh
 ├── _shared/
 │   ├── writing-standards.md
 │   └── meeting-notes-guide.md
@@ -253,7 +260,9 @@ agentic-product-manager/
 │   ├── process-tasks/
 │   ├── setup-initiative/
 │   ├── meeting-notes/
-│   └── discovery-workflow/
+│   ├── discovery-workflow/
+│   ├── find-skills/              # companion (via import-skill.sh)
+│   └── skill-creator/            # companion (via import-skill.sh)
 ├── agents/
 │   ├── pm-researcher.md
 │   ├── pm-writer.md
@@ -277,13 +286,9 @@ agentic-product-manager/
 
 ## Creating your own skills
 
-Want to extend this toolkit or build skills for your team? Use the [skill-creator](https://skills.sh/anthropics/skills/skill-creator) to scaffold new skills that follow the portable SKILL.md format:
+Want to extend this toolkit or build skills for your team? The [skill-creator](https://skills.sh/anthropics/skills/skill-creator) ships with this toolkit and guides you through the full development process. Run `/skill-creator` to get started.
 
-```bash
-npx skills add https://github.com/anthropics/skills --skill skill-creator
-```
-
-The skill creator walks you through planning, initializing, editing, packaging, and iterating on your skill. Published skills can be shared on [skills.sh](https://skills.sh/) and installed by anyone with a single command.
+Published skills can be shared on [skills.sh](https://skills.sh/) and installed by anyone with `./import-skill.sh` or `npx skills add`.
 
 ## Origins
 

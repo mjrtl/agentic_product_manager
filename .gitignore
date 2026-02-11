@@ -1,8 +1,11 @@
 # Source repo (used during development)
 pm-agent-skills/
 
+# skills.sh staging directory (import-skill.sh copies from here then cleans up)
+.agents/
+
 # Agent-specific skill directories created by `npx skills add`
-# Only .agents/ (universal) is needed; these are symlinks
+# These are symlinks into .agents/ and get cleaned up by import-skill.sh
 .claude/
 .cursor/
 .agent/
