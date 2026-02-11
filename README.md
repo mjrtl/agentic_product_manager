@@ -40,6 +40,12 @@ cd agentic_product_manager
 ./install.sh --cursor --project /path/to/your/project
 ```
 
+**Syncing to Keyrock AI workspace** (after updating this repo):
+```bash
+./sync-to-keyrock-workspace.sh
+```
+Updates `keyrock_ai_workspace` with the latest skills, agents, `_shared`, and workflows. Override the target with `KEYROCK_AI_WORKSPACE=/path ./sync-to-keyrock-workspace.sh`. Does not modify `initiatives/` or `strategy/`.
+
 **OpenCode**:
 ```bash
 ./install.sh --opencode --project /path/to/your/project

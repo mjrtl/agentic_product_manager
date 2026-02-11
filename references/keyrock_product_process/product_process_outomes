@@ -1,0 +1,174 @@
+This page provides a summary of outcomes and artefacts expected from every Keyrock Product Development Team, regardless of the localised adaptations made to discovery and delivery processes.
+
+To understand the outcomes of discovery / definition / development / delivery it is first important to understand the product process scope and why it exists
+
+# Outcomes
+
+- Initiatives are traceably aligned to Keyrock corporate strategy and OKRs, which makes trade‑offs and prioritisation explicit.
+- **Opportunity** sizing is comparable across teams, so we fund the highest‑value bets.
+- **Marketing** gets clear positioning, narratives, and launch timing early, so campaigns land.
+- **Delivery** is predictable so GTM schedules and operations can plan around us.
+- We deliver fewer wrong things and more features and outcomes that move core metrics.
+- Product **quality** improves and we avoid costly rework and incidents.
+- Adoption improves because we validate value propositions and rollout plans before scaling.
+
+## Product Scope
+
+Implied in the above is Product scope - Product is a strategic bridging function rather than an operational node, which means product activities can, at different times, impact every area of the business. There is by definition no boundary of responsibility for a bridging function because the purpose of the function is often to bridge gaps between functions and curate *commercial* value from management of *systems development*.
+
+A subsection of this scope is *delivery management* which is more about scoping and managing the delivery of engineering solutions.
+
+# Activities
+
+## Discovery & Definition
+
+### Strategic Product Vision development
+
+At the Head of Product level, a Product Vision that describes target market segments / internal users, challenges, and outline product solution (direction) is expected from each product development team.
+
+### What is Discovery?
+
+Discovery is about meeting an unmet user / client / customer need. That could be an internal trader, or it could be an external user / client / counterparty
+
+<aside>
+🤝🏽
+
+It is not possible to meet the needs of users we have never spoken to and have not met. We need to get out and talk to the relevant beneficiaries of products and systems that we are developing
+
+</aside>
+
+### Discovery Activities Part 1
+
+Opportunity discovery and it’s value & impact - both to Keyrock and to the users/clients/counterparties - this includes the assessment of new deals and products that differ from technical or financial products currently available, and which may need their own independent launch. This involves participating in *interviews* with *users* and *beneficiaries* of the existing or expected system, to assess acceptance / adoption / pain-points and more.
+
+This includes:
+
+1. Discovery of users / segments / internal users/stakeholders
+2. Interviews with users and system beneficiaries
+3. Documented verification of alignment with Keyrock strategy, of the decision to serve these internal/external users / market segments
+4. Assessment & verification of the opportunity value & impact, including customer testing / feasibility studies with Marketing if it is an external market or user segment
+
+### Discovery Activities Part 2
+
+Holding “Trio” or Discovery Meetings with Engineering and System’s designers. This include security, risk, and compliance needs of the system, as well as alignment with Engineering and Architecture roadmaps for technology.
+
+(from the [Product Development Process](https://www.notion.so/Product-Development-Process-e66f0455aea045509cf28eeaec5f59ec?pvs=21))
+
+---
+
+## The Discovery & Definition Space
+
+Discovery is about getting to the point of why we are doing something, what us feasible relative to what we have today and the resources available (squad size, talent, time) - and *also*, as a **Technologist**, being aware of the technologies in the tech landscape that could be candidates for solutions, beyond what we have today - the beginning of the *solutions* conversation with Engineering.
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/c5b05008-2637-41e0-9fad-bfad89d3d217/bd742eb5-07ae-4f28-a703-652c7e745dd5/Untitled.png)
+
+---
+
+### Definition building
+
+Beyond the initial Trio / Discovery meetings, holding several meetings with Engineering teams to build out descriptions of objectives, key results, user stories, and granular use cases, is all part of definition building.
+
+In addition, this involves creating a PR-FAQ in many cases, or an alternative description of a product feature as an addendum to an existing product (e.g. a new integration). The PR-FAQ should be a prediction of the final product / feature and acts as the root document for a product.
+
+## Development & Delivery
+
+Product Development activities often overlap with Engineering activities. The key difference is the objective to measure the difficult thing that is *impact* of development activity, and quality and efficiency of delivery.
+
+Included in this scope is the delivery concern around team management (in conjunction with Engineering Leads and Managers). This means PMs or DMs (whichever is designated in a team to own the activities) will hold planning, refinement, status, demo, and retrospective meetings around outputs and processes being followed by the team. These inputs usually lead to localised adaptions of the product development process - and therefore it should be viewed as guardrails within which various *agile* systems can be adapted and put into action.
+
+# Artefacts
+
+An outline of artefacts are covered in the Product Development Process:
+
+---
+
+Each Product Role has Artefacts that can also be considered deliverables that are used to both record product development activity and verify previous stages in the process.
+
+![](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/88331319-8087-44ba-90d2-b27f17b8a9dc/image-20230215-145611.png)
+
+---
+
+A clearer example of outputs and artefacts is provided below:
+
+| **Outcomes** | **Activities** | **Artefacts** |
+| --- | --- | --- |
+| • Initiatives are traceably aligned to Keyrock corporate strategy and OKRs, which makes trade‑offs and prioritisation explicit.
+ | Strategic Product Vision development
+
+OKR Ownership and User Story Mapping
+
+Alignment with security, compliance, and risk
+ | Product Vision Statements (see Product section of Notion)
+
+Epics and Stories aligned to Objective and Key Results, in User Story Maps
+ |
+| • **Opportunity** sizing is comparable across teams, so we fund the highest‑value bets.
+ | Discovery Interviews and partnering with both internal and external facing teams in talking with users/clients/stakeholders
+
+Central alignment with Keyrock group objectives
+ | Product Vision Statements
+
+Product Opportunity ROI and cost / benefit assessments
+ |
+| • **Marketing** gets clear positioning, narratives, and launch timing early, so campaigns land.
+ | ‘Press Release’ development
+
+Roadmap development
+
+Prioritisation and continuous learning (Retrospectives and Metrics)
+ | PR-FAQ docs
+
+Deep discovery and product feature docs
+
+Refinement and Retrospective meeting records
+ |
+| • **Delivery** is predictable so GTM schedules and operations can plan around us.
+ | Developing a deep understanding of opportunity value
+
+Prioritisation around value objectives
+
+Measurement of development and delivery
+
+Prioritisation and Team Management of Engineering Teams (with 
+Engineering Leads and Managers)
+ | User/ client/ counterparty/ stakeholder/ system-beneficiary interview records
+
+Documentation around opportunity value (e.g. using Opportunity Solution Trees and documents attached to PR-FAQs
+
+DORA delivery Metrics (Accelerate! Metrics)
+ |
+| • We deliver fewer wrong things and more features and outcomes that move core metrics.
+ | Quality Assurance (QA) test and test-environment development
+
+Driving adoption and usage together with Operations and Marketing
+
+DORA metrics monitoring and activity adjustment where needed | QAs and DMs are hired into teams
+
+QA KPIs (see Notion docs)
+
+Adoption and usage metrics
+
+DORA delivery Metrics (Accelerate! Metrics)
+ |
+| • Product **quality** improves and we avoid costly rework and incidents.
+ | Quality Assurance (QA) test and test-environment development
+
+Developing a deep understanding of opportunity value | QA KPIs (see Notion docs)
+
+User/ client/ counterparty/ stakeholder/ system-beneficiary interview records |
+| • Adoption improves because we validate value propositions and rollout plans before scaling. | Driving adoption and usage together with Operations and Marketing
+
+Value measures are tested on a small scale | User/ client/ counterparty/ stakeholder/ system-beneficiary interview records
+
+Product demos
+
+Product documentation and training materials
+
+Adoption and Product Usage metrics
+ |
+
+These expectations of activities and artefacts are executed by the product and delivery role holders
+
+ - see Roles and Recruitment
+
+[Product Roles & Recruitment](https://www.notion.so/Product-Roles-Recruitment-117a1050a3588035a1a3d3fe500f7e8b?pvs=21)

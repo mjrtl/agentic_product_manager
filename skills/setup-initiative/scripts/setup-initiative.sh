@@ -82,6 +82,11 @@ copy_template() {
 # Copy main README
 copy_template "$TEMPLATE_DIR/README.md" "$TARGET_DIR/README.md"
 
+# Copy discovery context (Keyrock process links, JTBD, problem) into discovery/
+if [ -f "$TEMPLATE_DIR/discovery_context.md" ]; then
+  copy_template "$TEMPLATE_DIR/discovery_context.md" "$TARGET_DIR/discovery/discovery_context.md"
+fi
+
 # Copy subfolder READMEs into phase subdirs
 for folder in user-interviews opportunities assumptions solutions; do
   if [ -f "$TEMPLATE_DIR/$folder/README.md" ]; then
@@ -114,15 +119,16 @@ echo ""
 echo "Folder structure:"
 echo "  $TARGET_DIR/"
 echo "  ├── README.md"
-echo "  ├── discovery/"
-echo "  │   ├── user-interviews/   (snapshots/, synthesis/, transcripts/)"
+echo "  ├── discovery/                    (1. Discovery)"
+echo "  │   ├── discovery_context.md      Keyrock process links, JTBD, problem"
+echo "  │   ├── user-interviews/          (snapshots/, synthesis/, transcripts/)"
 echo "  │   ├── opportunities/"
 echo "  │   ├── assumptions/"
 echo "  │   └── solutions/"
-echo "  ├── definition/"
+echo "  ├── definition/                   (2. Definition)"
 echo "  │   ├── prd/"
 echo "  │   └── design/"
-echo "  └── delivery/"
+echo "  └── delivery/                    (3. Delivery)"
 echo "      ├── tasks/"
 echo "      ├── qa/"
 echo "      ├── delivery-metrics/"

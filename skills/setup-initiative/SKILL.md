@@ -52,15 +52,16 @@ Create the folder structure manually:
 ```
 initiatives/[initiative-name]/
 ├── README.md
-├── discovery/
-│   ├── user-interviews/   (README.md, snapshots/, synthesis/, transcripts/)
+├── discovery/                    (1. Discovery)
+│   ├── discovery_context.md      Keyrock process links, JTBD, problem (pointer to Notion)
+│   ├── user-interviews/          (README.md, snapshots/, synthesis/, transcripts/)
 │   ├── opportunities/
 │   ├── assumptions/
 │   └── solutions/
-├── definition/
-│   ├── prd/               (PRDs, 1-pagers, and PR-FAQs)
+├── definition/                   (2. Definition)
+│   ├── prd/                     (PRDs, 1-pagers, and PR-FAQs)
 │   └── design/
-└── delivery/
+└── delivery/                    (3. Delivery)
     ├── tasks/
     ├── qa/
     ├── delivery-metrics/
@@ -74,17 +75,18 @@ After creation, the user can use these skills in the initiative. Paths are relat
 
 | Skill | Location | Phase |
 |-------|----------|-------|
-| `/interview-snapshot` | `discovery/user-interviews/snapshots/` | Discovery |
-| `/synthesize-interviews` | `discovery/user-interviews/synthesis/` | Discovery |
-| `/create-opportunities` | `discovery/opportunities/` | Discovery |
-| `/generate-solutions` | `discovery/solutions/` | Discovery |
-| `/test-assumptions` | `discovery/assumptions/` | Discovery |
-| `/pr-faq` | `definition/prd/` | Definition |
-| `/prd` | `definition/prd/` | Definition |
-| `/design-brief` | `definition/design/` | Definition |
-| `/figma-prompt` | `definition/design/` | Definition |
-| `/generate-tasks` | `delivery/tasks/` | Delivery |
-| `/process-tasks` | `delivery/tasks/` | Delivery |
-| `/delivery-metrics` | `delivery/qa/`, `delivery/delivery-metrics/`, `delivery/product-analytics/` | Delivery |
+| *(fill [discovery_context.md](discovery/discovery_context.md) first)* | `discovery/` | 1. Discovery |
+| `/interview-snapshot` | `discovery/user-interviews/snapshots/` | 1. Discovery |
+| `/synthesize-interviews` | `discovery/user-interviews/synthesis/` | 1. Discovery |
+| `/create-opportunities` | `discovery/opportunities/` | 1. Discovery |
+| `/generate-solutions` | `discovery/solutions/` | 1. Discovery |
+| `/test-assumptions` | `discovery/assumptions/` | 1. Discovery |
+| `/pr-faq` | `definition/prd/` | 2. Definition |
+| `/prd` | `definition/prd/` | 2. Definition |
+| `/design-brief` | `definition/design/` | 2. Definition |
+| `/figma-prompt` | `definition/design/` | 2. Definition |
+| `/generate-tasks` | `delivery/tasks/` | 3. Delivery |
+| `/process-tasks` | `delivery/tasks/` | 3. Delivery |
+| `/delivery-metrics` | `delivery/qa/`, `delivery/delivery-metrics/`, `delivery/product-analytics/` | 3. Delivery |
 
 Follow the writing standards in `_shared/writing-standards.md` for all outputs.

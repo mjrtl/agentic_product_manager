@@ -242,11 +242,19 @@ install_cursor() {
     "$SCRIPT_DIR/agents" \
     "$dest/.cursor"
 
+  # Copy workflows (add/update from source; does not remove workspace-specific files)
+  echo "  Copying workflows..."
+  mkdir -p "$dest/workflows"
+  for f in "$SCRIPT_DIR/workflows/"*; do
+    [ -f "$f" ] && cp "$f" "$dest/workflows/"
+  done
+
   echo ""
   echo "Cursor installation complete!"
   echo "  Skills installed to: $dest/.cursor/skills/"
   echo "  Agents installed to: $dest/.cursor/agents/"
   echo "  Shared materials: $dest/_shared/"
+  echo "  Workflows: $dest/workflows/"
   echo ""
   echo "Example commands (type / in Cursor to invoke):"
   echo "  /setup-initiative    Scaffold a new initiative"
