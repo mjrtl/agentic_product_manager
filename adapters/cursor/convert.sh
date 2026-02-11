@@ -1,18 +1,29 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Cursor Adapter: Convert SKILL.md files to .mdc rules
+# Cursor Adapter: Convert skills and agents for Cursor's native format
 #
 # Usage:
-#   ./convert.sh <skills-dir> <output-dir>
+#   ./convert.sh <skills-dir> <agents-dir> <output-base-dir>
 #
-# Converts each SKILL.md into a .mdc file with Cursor-compatible frontmatter.
-# Reference files are appended to the .mdc content.
+# Outputs:
+#   <output-base-dir>/skills/<name>/SKILL.md   — Skills with transformed frontmatter
+#   <output-base-dir>/agents/<name>.md          — Agents with injected YAML frontmatter
 
-SKILLS_DIR="${1:?Usage: ./convert.sh <skills-dir> <output-dir>}"
-OUTPUT_DIR="${2:?Usage: ./convert.sh <skills-dir> <output-dir>}"
+SKILLS_DIR="${1:?Usage: ./convert.sh <skills-dir> <agents-dir> <output-base-dir>}"
+AGENTS_DIR="${2:?Usage: ./convert.sh <skills-dir> <agents-dir> <output-base-dir>}"
+OUTPUT_BASE="${3:?Usage: ./convert.sh <skills-dir> <agents-dir> <output-base-dir>}"
 
-mkdir -p "$OUTPUT_DIR"
+SKILLS_OUT="$OUTPUT_BASE/skills"
+AGENTS_OUT="$OUTPUT_BASE/agents"
+
+mkdir -p "$SKILLS_OUT"
+mkdir -p "$AGENTS_OUT"
+
+# ---------------------------------------------------------------
+# Part A: Skills conversion
+# ---------------------------------------------------------------
+skill_count=0
 
 for skill_dir in "$SKILLS_DIR"/*/; do
   [ -d "$skill_dir" ] || continue
@@ -23,54 +34,119 @@ for skill_dir in "$SKILLS_DIR"/*/; do
     continue
   fi
 
-  output_file="$OUTPUT_DIR/${skill_name}.mdc"
+  out_skill_dir="$SKILLS_OUT/$skill_name"
+  mkdir -p "$out_skill_dir"
 
-  # Extract frontmatter fields from SKILL.md
-  name=$(sed -n 's/^name: *//p' "$skill_file" | head -1)
-  description=$(sed -n '/^description: *>/,/^[a-z]/{ /^description/d; /^[a-z]/d; s/^ *//; p; }' "$skill_file" | tr '\n' ' ' | sed 's/ *$//')
+  # --- Transform frontmatter ---
+  # Split into frontmatter and body
+  frontmatter=$(awk '/^---$/{c++; if(c==2) exit; next} c==1{print}' "$skill_file")
+  body=$(awk '/^---$/{c++; if(c==2){p=1; next}} p{print}' "$skill_file")
 
-  # If description extraction failed, try single-line format
-  if [ -z "$description" ]; then
-    description=$(sed -n 's/^description: *//p' "$skill_file" | head -1)
-  fi
+  # Build new frontmatter by filtering and transforming line-by-line
+  new_frontmatter=""
 
-  # Determine if user-invocable (default: true)
-  user_invocable=$(sed -n 's/^user-invocable: *//p' "$skill_file" | head -1)
-  if [ "$user_invocable" = "false" ]; then
-    always_apply="true"
-  else
-    always_apply="false"
-  fi
+  while IFS= read -r line; do
+    # Skip argument-hint field
+    if [[ "$line" =~ ^argument-hint: ]]; then
+      continue
+    fi
 
-  # Get the content after the frontmatter closing ---
-  content=$(awk '/^---$/{count++; if(count==2){found=1; next}} found{print}' "$skill_file")
+    # Handle user-invocable -> disable-model-invocation
+    if [[ "$line" =~ ^user-invocable:\ *false ]]; then
+      new_frontmatter+="disable-model-invocation: true"$'\n'
+      continue
+    fi
+    # Skip user-invocable: true (default behavior, no output needed)
+    if [[ "$line" =~ ^user-invocable: ]]; then
+      continue
+    fi
 
-  # Build .mdc file
-  cat > "$output_file" << MDCEOF
----
-description: ${description}
-globs:
-alwaysApply: ${always_apply}
----
+    # Replace name value with directory name
+    if [[ "$line" =~ ^name: ]]; then
+      new_frontmatter+="name: $skill_name"$'\n'
+      continue
+    fi
 
-${content}
-MDCEOF
+    # Keep everything else (description and its continuation lines)
+    new_frontmatter+="$line"$'\n'
+  done <<< "$frontmatter"
 
-  # Append reference files if they exist
-  if [ -d "$skill_dir/references" ]; then
-    for ref_file in "$skill_dir"/references/*.md; do
-      [ -f "$ref_file" ] || continue
-      ref_name=$(basename "$ref_file")
-      echo "" >> "$output_file"
-      echo "---" >> "$output_file"
-      echo "" >> "$output_file"
-      echo "## Reference: ${ref_name%.md}" >> "$output_file"
-      echo "" >> "$output_file"
-      cat "$ref_file" >> "$output_file"
-    done
-  fi
+  # Write transformed SKILL.md
+  {
+    echo "---"
+    printf '%s' "$new_frontmatter"
+    echo "---"
+    printf '%s\n' "$body"
+  } > "$out_skill_dir/SKILL.md"
 
-  echo "  Converted: $skill_name -> ${skill_name}.mdc"
+  # --- Copy subdirectories (references/, scripts/, templates/, assets/) ---
+  for subdir in "$skill_dir"*/; do
+    [ -d "$subdir" ] || continue
+    subdir_name=$(basename "$subdir")
+    cp -r "$subdir" "$out_skill_dir/$subdir_name"
+  done
+
+  skill_count=$((skill_count + 1))
+  echo "  Converted skill: $skill_name"
 done
 
-echo "  Done. $(find "$OUTPUT_DIR" -name "*.mdc" | wc -l | tr -d ' ') rules created."
+echo "  $skill_count skills converted to $SKILLS_OUT/"
+
+# ---------------------------------------------------------------
+# Part B: Agents conversion
+# ---------------------------------------------------------------
+
+# Agent metadata lookup: description and readonly flag
+# readonly is a semantic design decision (pm-researcher only reads)
+get_agent_meta() {
+  local name="$1"
+  case "$name" in
+    pm-researcher)
+      AGENT_DESCRIPTION="Read-only context gatherer for product management workflows."
+      AGENT_READONLY="true"
+      return 0
+      ;;
+    pm-writer)
+      AGENT_DESCRIPTION="Document creator that enforces writing standards for all PM outputs."
+      AGENT_READONLY="false"
+      return 0
+      ;;
+    pm-analyst)
+      AGENT_DESCRIPTION="Scoring and evaluation specialist for product management workflows."
+      AGENT_READONLY="false"
+      return 0
+      ;;
+    *)
+      return 1
+      ;;
+  esac
+}
+
+agent_count=0
+
+for agent_file in "$AGENTS_DIR"/*.md; do
+  [ -f "$agent_file" ] || continue
+  agent_name=$(basename "$agent_file" .md)
+
+  # Only convert known agents
+  if ! get_agent_meta "$agent_name"; then
+    echo "  Warning: Unknown agent '$agent_name', skipping"
+    continue
+  fi
+
+  # Write agent file with YAML frontmatter prepended
+  {
+    echo "---"
+    echo "name: $agent_name"
+    echo "description: \"$AGENT_DESCRIPTION\""
+    echo "readonly: $AGENT_READONLY"
+    echo "---"
+    echo ""
+    cat "$agent_file"
+  } > "$AGENTS_OUT/$agent_name.md"
+
+  agent_count=$((agent_count + 1))
+  echo "  Converted agent: $agent_name"
+done
+
+echo "  $agent_count agents converted to $AGENTS_OUT/"

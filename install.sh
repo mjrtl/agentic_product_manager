@@ -35,7 +35,7 @@ usage() {
   echo ""
   echo "Platforms:"
   echo "  --claude-code   Install for Claude Code (skills + agents + hooks + CLAUDE.md)"
-  echo "  --cursor        Install for Cursor (converts skills to .mdc rules)"
+  echo "  --cursor        Install for Cursor (skills + agents in .cursor/)"
   echo "  --opencode      Install for OpenCode (copies skills + generates AGENTS.md)"
   echo ""
   echo "Scope:"
@@ -161,10 +161,10 @@ install_claude_code() {
     echo "    CLAUDE.md already exists. Merging..."
     echo "" >> "$dest/CLAUDE.md"
     echo "<!-- BEGIN: Agentic Product Manager -->" >> "$dest/CLAUDE.md"
-    cat "$SCRIPT_DIR/claude/CLAUDE.md" >> "$dest/CLAUDE.md"
+    cat "$SCRIPT_DIR/adapters/claude-code/CLAUDE.md" >> "$dest/CLAUDE.md"
     echo "<!-- END: Agentic Product Manager -->" >> "$dest/CLAUDE.md"
   else
-    cp "$SCRIPT_DIR/claude/CLAUDE.md" "$dest/CLAUDE.md"
+    cp "$SCRIPT_DIR/adapters/claude-code/CLAUDE.md" "$dest/CLAUDE.md"
   fi
 
   # Install settings.json (merge if exists)
@@ -172,13 +172,13 @@ install_claude_code() {
     echo "  settings.json already exists. Please merge manually from claude/settings.json"
   else
     mkdir -p "$dest/.claude"
-    cp "$SCRIPT_DIR/claude/settings.json" "$dest/.claude/settings.json"
+    cp "$SCRIPT_DIR/adapters/claude-code/settings.json" "$dest/.claude/settings.json"
   fi
 
   # Install rules
   echo "  Installing rules..."
   mkdir -p "$dest/.claude/rules"
-  cp "$SCRIPT_DIR/claude/rules/pm-conventions.md" "$dest/.claude/rules/pm-conventions.md"
+  cp "$SCRIPT_DIR/adapters/claude-code/rules/pm-conventions.md" "$dest/.claude/rules/pm-conventions.md"
 
   # Make setup-initiative script executable
   if [ -f "$dest/skills/setup-initiative/scripts/setup-initiative.sh" ]; then
@@ -218,22 +218,35 @@ install_cursor() {
 
   echo "Installing for Cursor..."
 
-  # Use the Cursor adapter to convert SKILL.md files to .mdc
-  mkdir -p "$dest/.cursor/rules"
+  # Remove legacy .cursor/rules/ if present (migration from old adapter)
+  if [ -d "$dest/.cursor/rules" ]; then
+    echo "  Removing legacy .cursor/rules/..."
+    rm -rf "$dest/.cursor/rules"
+  fi
 
   # Copy shared materials (needed by skills)
   echo "  Copying shared materials..."
   mkdir -p "$dest/_shared"
   cp -r "$SCRIPT_DIR/_shared/"* "$dest/_shared/"
 
-  # Convert each skill to .mdc format
-  echo "  Converting skills to .mdc rules..."
-  bash "$SCRIPT_DIR/adapters/cursor/convert.sh" "$SCRIPT_DIR/skills" "$dest/.cursor/rules"
+  # Convert skills and agents using the Cursor adapter
+  echo "  Converting skills and agents..."
+  bash "$SCRIPT_DIR/adapters/cursor/convert.sh" \
+    "$SCRIPT_DIR/skills" \
+    "$SCRIPT_DIR/agents" \
+    "$dest/.cursor"
 
   echo ""
   echo "Cursor installation complete!"
-  echo "  Rules installed to: $dest/.cursor/rules/"
+  echo "  Skills installed to: $dest/.cursor/skills/"
+  echo "  Agents installed to: $dest/.cursor/agents/"
   echo "  Shared materials: $dest/_shared/"
+  echo ""
+  echo "Example commands (type / in Cursor to invoke):"
+  echo "  /setup-initiative    Scaffold a new initiative"
+  echo "  /prd                 Create a Product Requirements Document"
+  echo "  /ice-score           Score an idea with ICE framework"
+  echo "  /discovery-workflow  Full CDH pipeline orchestrator"
 }
 
 # -------------------------------------------------------------------

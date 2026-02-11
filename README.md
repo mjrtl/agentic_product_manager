@@ -29,7 +29,7 @@ Then open Claude Code in your project and use any command:
 ./install.sh --cursor --project /path/to/your/project
 ```
 
-Skills are converted to `.mdc` rules in `.cursor/rules/`.
+Installs 20 skills to `.cursor/skills/` and 3 sub-agents to `.cursor/agents/`. Skills are invocable via `/` commands in Cursor; agents are auto-delegated by the model.
 
 ### OpenCode
 
@@ -158,12 +158,12 @@ agentic-product-manager/
 ├── workflows/
 │   ├── discovery-to-delivery.md
 │   └── strategy-review-cycle.md
-├── claude/
-│   ├── CLAUDE.md
-│   ├── settings.json
-│   └── rules/
-│       └── pm-conventions.md
 └── adapters/
+    ├── claude-code/
+    │   ├── CLAUDE.md
+    │   ├── settings.json
+    │   └── rules/
+    │       └── pm-conventions.md
     ├── cursor/
     │   └── convert.sh
     └── opencode/
