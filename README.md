@@ -1,43 +1,137 @@
 # Agentic Product Manager
 
-A complete product management toolkit with 20 skills, 3 agents, hooks, and workflows. Works across Claude Code, Cursor, and OpenCode.
+A complete product management toolkit with 20 skills, 3 agents, hooks, and workflows. Works across Claude Code, Cursor, OpenCode, and 15+ other agents via [skills.sh](https://skills.sh/).
 
 Built on the [Continuous Discovery Habits](https://www.producttalk.org/) methodology by Teresa Torres, the [PRISM strategy review framework](https://github.com/jinjin1/Cursor-for-Product-Managers), and proven PM practices.
 
-## Quick start
+## Install
 
-### Claude Code
+### One-line install via skills.sh
+
+The fastest way to get started. Works with Claude Code, Cursor, GitHub Copilot, Cline, Windsurf, and [18+ other agents](https://skills.sh/).
 
 ```bash
-git clone https://github.com/your-org/agentic-product-manager.git
-cd agentic-product-manager
+npx skills add https://github.com/mjrtl/agentic_product_manager
+```
+
+This installs all 20 skills directly into your agent's skill directory.
+
+### Platform-specific install
+
+Clone the repo and run the installer for your platform:
+
+```bash
+git clone https://github.com/mjrtl/agentic_product_manager.git
+cd agentic_product_manager
+```
+
+**Claude Code** (project-scoped):
+```bash
 ./install.sh --claude-code --project /path/to/your/project
 ```
 
-Then open Claude Code in your project and use any command:
-
-```
-/setup-initiative mobile-app-redesign
-/prd checkout-flow
-/ice-score recommendation-engine
-/discovery-workflow mobile-app-redesign
+**Claude Code** (global, available in all projects):
+```bash
+./install.sh --claude-code --global
 ```
 
-### Cursor
-
+**Cursor**:
 ```bash
 ./install.sh --cursor --project /path/to/your/project
 ```
 
-Installs 20 skills to `.cursor/skills/` and 3 sub-agents to `.cursor/agents/`. Skills are invocable via `/` commands in Cursor; agents are auto-delegated by the model.
-
-### OpenCode
-
+**OpenCode**:
 ```bash
 ./install.sh --opencode --project /path/to/your/project
 ```
 
-Skills are copied to `.opencode/skills/` and an `AGENTS.md` is generated.
+## Recommended companion skills
+
+Install these alongside the toolkit to extend your workflow.
+
+### Find skills
+
+Discover and install skills from the open ecosystem. When you need a capability that isn't built in, ask your agent to find one.
+
+```bash
+npx skills add https://github.com/vercel-labs/skills --skill find-skills
+```
+
+Then ask your agent: "find a skill for X" or run `npx skills find [query]` directly.
+
+[View on skills.sh](https://skills.sh/vercel-labs/skills/find-skills)
+
+### Skill creator
+
+Build your own skills to extend this toolkit or share with your team. The skill creator guides you through the full development process: plan, initialize, edit, package, and iterate.
+
+```bash
+npx skills add https://github.com/anthropics/skills --skill skill-creator
+```
+
+Then ask your agent: "/skill-creator" to start building a new skill.
+
+[View on skills.sh](https://skills.sh/anthropics/skills/skill-creator)
+
+## Usage
+
+### Start an initiative
+
+Scaffold a workspace with structured folders for interviews, opportunities, PRDs, and tasks:
+
+```
+/setup-initiative mobile-app-redesign
+```
+
+This creates:
+
+```
+initiatives/mobile-app-redesign/
+├── README.md
+├── user-interviews/
+│   ├── snapshots/
+│   ├── synthesis/
+│   └── transcripts/
+├── opportunities/
+├── assumptions/
+├── solutions/
+├── design/
+├── product-analytics/
+├── prd/
+└── tasks/
+```
+
+Every skill saves its output to the appropriate folder. The workflow orchestrator scans this structure to track progress.
+
+### Run the discovery workflow
+
+The `/discovery-workflow` command detects where you are in the CDH pipeline and suggests the next step:
+
+```
+/discovery-workflow mobile-app-redesign
+```
+
+The full pipeline:
+
+```
+Setup → Interviews → Snapshots → Synthesis → Opportunities →
+Solutions → Assumptions → PRD → Tasks → Delivery
+```
+
+You can also run each step individually using the skill commands below.
+
+### Run a strategy review
+
+Use these quarterly to evaluate and refine your product strategy:
+
+```
+/vision-review
+/prism-review
+/okr-coach
+/team-structure
+```
+
+See `workflows/strategy-review-cycle.md` for the full review cadence.
 
 ## Skills (20)
 
@@ -98,6 +192,8 @@ Skills are copied to `.opencode/skills/` and an `AGENTS.md` is generated.
 
 ## Agents (Claude Code)
 
+Three specialized agents handle different types of work:
+
 | Agent | Role |
 |-------|------|
 | **pm-researcher** | Read-only context gatherer; scans initiative folders, finds evidence |
@@ -106,15 +202,25 @@ Skills are copied to `.opencode/skills/` and an `AGENTS.md` is generated.
 
 ## Workflows
 
-Two documented workflow patterns:
+Two documented workflow patterns in the `workflows/` directory:
 
-- **Discovery to delivery** (`workflows/discovery-to-delivery.md`): Full CDH pipeline from setup through task execution
-- **Strategy review cycle** (`workflows/strategy-review-cycle.md`): Quarterly strategy review cadence using PRISM, vision, OKR, and team structure skills
+- **Discovery to delivery** (`discovery-to-delivery.md`): Full CDH pipeline from setup through task execution, with entry/exit criteria for each stage
+- **Strategy review cycle** (`strategy-review-cycle.md`): Quarterly strategy review cadence using PRISM, vision, OKR, and team structure skills
 
 ## Hooks (Claude Code)
 
 - **session-start**: Reports active initiative status when you open a session
-- **writing-standards-check**: Checks for banned words/phrases when writing `.md` files in initiative directories
+- **writing-standards-check**: Validates writing standards when saving `.md` files in initiative directories
+
+## Writing standards
+
+All outputs follow the standards in `_shared/writing-standards.md`:
+
+- Active voice, direct tone
+- 50+ banned words checked automatically (no "leverage," "utilize," "robust," etc.)
+- No LLM patterns (no em dashes, no "Let's dive in")
+- Sentence-case headings, Oxford commas
+- Specificity over superlatives
 
 ## Project structure
 
@@ -162,45 +268,22 @@ agentic-product-manager/
     ├── claude-code/
     │   ├── CLAUDE.md
     │   ├── settings.json
-    │   └── rules/
-    │       └── pm-conventions.md
+    │   └── rules/pm-conventions.md
     ├── cursor/
     │   └── convert.sh
     └── opencode/
         └── convert.sh
 ```
 
-## Initiative workspace
+## Creating your own skills
 
-When you run `/setup-initiative`, it creates a standardized folder structure:
+Want to extend this toolkit or build skills for your team? Use the [skill-creator](https://skills.sh/anthropics/skills/skill-creator) to scaffold new skills that follow the portable SKILL.md format:
 
-```
-initiatives/[name]/
-├── README.md
-├── user-interviews/
-│   ├── snapshots/
-│   ├── synthesis/
-│   └── transcripts/
-├── opportunities/
-├── assumptions/
-├── solutions/
-├── design/
-├── product-analytics/
-├── prd/
-└── tasks/
+```bash
+npx skills add https://github.com/anthropics/skills --skill skill-creator
 ```
 
-Each skill saves its output to the appropriate folder. The `/discovery-workflow` skill scans this structure to determine progress and suggest the next step.
-
-## Writing standards
-
-All outputs follow the writing standards in `_shared/writing-standards.md`:
-
-- Active voice, direct tone
-- Banned words checked (no "leverage," "utilize," "robust," etc.)
-- No LLM patterns (no em dashes, no "Let's dive in")
-- Sentence-case headings
-- Oxford commas
+The skill creator walks you through planning, initializing, editing, packaging, and iterating on your skill. Published skills can be shared on [skills.sh](https://skills.sh/) and installed by anyone with a single command.
 
 ## Origins
 
@@ -208,7 +291,7 @@ This project builds on:
 - [Cursor-for-Product-Managers](https://github.com/jinjin1/Cursor-for-Product-Managers) (15 .mdc rules for Cursor)
 - [pm-agent-skills](https://github.com/mjrtl/pm-agent-skills) (7 SKILL.md portable skills)
 
-The original prompt content has been preserved and expanded into 20 individual skills with agents, hooks, workflows, and multi-platform support.
+The original prompt content has been preserved and expanded into 20 skills with agents, hooks, workflows, and multi-platform support.
 
 ## License
 

@@ -1,2 +1,31 @@
 # Source repo (used during development)
 pm-agent-skills/
+
+# Agent-specific skill directories created by `npx skills add`
+# Only .agents/ (universal) is needed; these are symlinks
+.claude/
+.cursor/
+.agent/
+.cline/
+.codebuddy/
+.commandcode/
+.continue/
+.crush/
+.factory/
+.goose/
+.junie/
+.kilocode/
+.kiro/
+.kode/
+.mcpjam/
+.mux/
+.neovate/
+.openhands/
+.pi/
+.pochi/
+.qoder/
+.qwen/
+.roo/
+.trae/
+.windsurf/
+.zencoder/
