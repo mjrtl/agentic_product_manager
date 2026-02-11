@@ -52,6 +52,8 @@ Create the folder structure manually:
 ```
 initiatives/[initiative-name]/
 ├── README.md
+│
+│   ## Discovery
 ├── user-interviews/
 │   ├── README.md
 │   ├── snapshots/
@@ -63,13 +65,23 @@ initiatives/[initiative-name]/
 │   └── README.md
 ├── solutions/
 │   └── README.md
+│
+│   ## Definition
+├── prd/
+│   └── README.md          (PRDs, 1-pagers, and PR-FAQs)
 ├── design/
+│   └── README.md
+│
+│   ## Delivery
+├── tasks/
+│   └── README.md
+├── qa/
+│   └── README.md
+├── delivery-metrics/
 │   └── README.md
 ├── product-analytics/
 │   └── README.md
-├── prd/
-│   └── README.md
-└── tasks/
+└── launch/
     └── README.md
 ```
 
@@ -77,17 +89,19 @@ initiatives/[initiative-name]/
 
 After creation, the user can use these skills in the initiative:
 
-| Skill | Location |
-|-------|----------|
-| `/interview-snapshot` | `user-interviews/snapshots/` |
-| `/synthesize-interviews` | `user-interviews/synthesis/` |
-| `/create-opportunities` | `opportunities/` |
-| `/generate-solutions` | `solutions/` |
-| `/test-assumptions` | `assumptions/` |
-| `/design-brief` | `design/` |
-| `/figma-prompt` | `design/` |
-| `/prd` | `prd/` |
-| `/generate-tasks` | `tasks/` |
-| `/process-tasks` | `tasks/` |
+| Skill | Location | Phase |
+|-------|----------|-------|
+| `/interview-snapshot` | `user-interviews/snapshots/` | Discovery |
+| `/synthesize-interviews` | `user-interviews/synthesis/` | Discovery |
+| `/create-opportunities` | `opportunities/` | Discovery |
+| `/generate-solutions` | `solutions/` | Discovery |
+| `/test-assumptions` | `assumptions/` | Discovery |
+| `/pr-faq` | `prd/` | Definition |
+| `/prd` | `prd/` | Definition |
+| `/design-brief` | `design/` | Definition |
+| `/figma-prompt` | `design/` | Definition |
+| `/generate-tasks` | `tasks/` | Delivery |
+| `/process-tasks` | `tasks/` | Delivery |
+| `/delivery-metrics` | `qa/`, `delivery-metrics/`, `product-analytics/` | Delivery |
 
 Follow the writing standards in `_shared/writing-standards.md` for all outputs.

@@ -1,6 +1,6 @@
 # Agentic Product Manager
 
-You are a product management toolkit powered by 20 skills, 3 specialized agents, and structured workflows.
+You are a product management toolkit powered by 23 skills, 3 specialized agents, and structured workflows.
 
 ## Skill directory
 
@@ -9,6 +9,7 @@ When a user invokes a slash command or describes a PM task, route to the matchin
 ### Strategy & review
 | Command | Skill | Description |
 |---------|-------|-------------|
+| `/setup-strategy` | `skills/setup-strategy/SKILL.md` | Scaffold strategy workspace |
 | `/prism-review` | `skills/prism-review/SKILL.md` | PRISM strategy review (5 dimensions, 0-5 scoring) |
 | `/vision-review` | `skills/vision-review/SKILL.md` | Product vision scoring (4 criteria) |
 | `/okr-coach` | `skills/okr-coach/SKILL.md` | OKR sparring partner |
@@ -26,6 +27,7 @@ When a user invokes a slash command or describes a PM task, route to the matchin
 ### Documents
 | Command | Skill | Description |
 |---------|-------|-------------|
+| `/pr-faq` | `skills/pr-faq/SKILL.md` | Amazon-style PR-FAQ (root document for products) |
 | `/prd` | `skills/prd/SKILL.md` | Product Requirements Document |
 | `/one-pager` | `skills/one-pager/SKILL.md` | Decision-focused 1-Pager |
 | `/design-brief` | `skills/design-brief/SKILL.md` | Design brief (JSON + Markdown) |
@@ -42,6 +44,7 @@ When a user invokes a slash command or describes a PM task, route to the matchin
 | `/generate-tasks` | `skills/generate-tasks/SKILL.md` | Create task list from PRD |
 | `/process-tasks` | `skills/process-tasks/SKILL.md` | Work through tasks one by one |
 | `/setup-initiative` | `skills/setup-initiative/SKILL.md` | Scaffold initiative folder |
+| `/delivery-metrics` | `skills/delivery-metrics/SKILL.md` | DORA, QA, and adoption metric snapshots |
 | `/meeting-notes` | `skills/meeting-notes/SKILL.md` | Capture 1:1 meeting notes |
 
 ### Workflows
@@ -76,6 +79,12 @@ When a user invokes a slash command or describes a PM task, route to the matchin
    - "OKR" / "objectives and key results" -> `/okr-coach`
    - "vision" / "product vision" -> `/vision-review`
    - "team structure" / "org design" / "reorg" -> `/team-structure`
+   - "strategy workspace" / "setup strategy" / "create strategy" -> `/setup-strategy`
+   - "PR-FAQ" / "press release" / "press release FAQ" -> `/pr-faq`
+   - "DORA" / "delivery metrics" / "deployment frequency" -> `/delivery-metrics`
+   - "QA metrics" / "defect density" / "test coverage" -> `/delivery-metrics`
+   - "adoption metrics" / "DAU" / "retention" / "activation" -> `/delivery-metrics`
+   - "opportunity ROI" / "business case" / "return on investment" -> `/create-opportunities`
    - "discovery workflow" / "full pipeline" -> `/discovery-workflow`
 3. **PM copilot fallback**: If the task is PM-related but doesn't match a specific skill, load `pm-copilot`
 
@@ -96,6 +105,22 @@ All document outputs must follow `_shared/writing-standards.md`. Key rules:
 - Sentence-case headings
 - Oxford commas
 
+## Strategy workspace convention
+
+Strategy workspaces live in `strategy/[kebab-case-name]/`:
+```
+strategy/[name]/
+├── README.md
+├── review-log.md
+├── vision/
+├── okrs/
+├── prism-reviews/
+├── team-structure/
+└── evidence/
+```
+
+Use `/setup-strategy` to scaffold. Initiatives link back to strategy via the `**Strategy:**` field in their README.
+
 ## Initiative workspace convention
 
 Initiatives live in `initiatives/[kebab-case-name]/` with this structure:
@@ -106,10 +131,13 @@ initiatives/[name]/
 ├── opportunities/
 ├── assumptions/
 ├── solutions/
+├── prd/                    (PRDs, 1-pagers, and PR-FAQs)
 ├── design/
+├── tasks/
+├── qa/
+├── delivery-metrics/
 ├── product-analytics/
-├── prd/
-└── tasks/
+└── launch/
 ```
 
 When a skill references file locations (e.g., "save to `user-interviews/snapshots/`"), these paths are relative to the active initiative folder.

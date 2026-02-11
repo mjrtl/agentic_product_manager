@@ -180,34 +180,40 @@ install_claude_code() {
   mkdir -p "$dest/.claude/rules"
   cp "$SCRIPT_DIR/adapters/claude-code/rules/pm-conventions.md" "$dest/.claude/rules/pm-conventions.md"
 
-  # Make setup-initiative script executable
+  # Make scripts executable
   if [ -f "$dest/skills/setup-initiative/scripts/setup-initiative.sh" ]; then
     chmod +x "$dest/skills/setup-initiative/scripts/setup-initiative.sh"
+  fi
+  if [ -f "$dest/skills/setup-strategy/scripts/setup-strategy.sh" ]; then
+    chmod +x "$dest/skills/setup-strategy/scripts/setup-strategy.sh"
   fi
 
   echo ""
   echo "Claude Code installation complete!"
   echo ""
-  echo "Available commands:"
-  echo "  /prd                    Create a Product Requirements Document"
-  echo "  /one-pager              Create a decision-focused 1-Pager"
-  echo "  /ice-score              Score an idea with ICE framework"
+  echo "Available commands (23 skills):"
+  echo "  /setup-strategy         Scaffold a strategy workspace"
   echo "  /prism-review           Run a PRISM strategy review"
   echo "  /vision-review          Score a product vision"
   echo "  /okr-coach              OKR sparring partner"
+  echo "  /team-structure         Org design guidance"
+  echo "  /setup-initiative       Scaffold a new initiative"
   echo "  /interview-snapshot     Create an interview snapshot"
   echo "  /synthesize-interviews  Synthesize interview patterns"
-  echo "  /create-opportunities   Extract opportunities from research"
+  echo "  /create-opportunities   Extract opportunities from research (+ optional ROI)"
   echo "  /generate-solutions     AI-human collaborative ideation"
   echo "  /test-assumptions       Identify and test assumptions"
-  echo "  /setup-initiative       Scaffold a new initiative"
-  echo "  /generate-tasks         Create task list from requirements"
-  echo "  /process-tasks          Work through tasks one by one"
+  echo "  /pr-faq                 Create an Amazon-style PR-FAQ"
+  echo "  /prd                    Create a Product Requirements Document"
+  echo "  /one-pager              Create a decision-focused 1-Pager"
+  echo "  /ice-score              Score an idea with ICE framework"
   echo "  /design-brief           Create a design brief"
   echo "  /figma-prompt           Generate Figma Make prompt"
-  echo "  /team-structure         Org design guidance"
+  echo "  /generate-tasks         Create task list from requirements"
+  echo "  /process-tasks          Work through tasks one by one"
+  echo "  /delivery-metrics       DORA, QA, and adoption metric snapshots"
   echo "  /meeting-notes          Capture 1:1 meeting notes"
-  echo "  /discovery-workflow     Full CDH pipeline orchestrator"
+  echo "  /discovery-workflow     Full pipeline orchestrator"
 }
 
 # -------------------------------------------------------------------

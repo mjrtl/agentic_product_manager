@@ -14,9 +14,10 @@ if [ -z "$FILE_PATH" ]; then
   exit 0
 fi
 
-# Only check .md files in initiatives/ directory
+# Only check .md files in initiatives/ or strategy/ directories
 case "$FILE_PATH" in
   initiatives/*.md|initiatives/**/*.md) ;;
+  strategy/*.md|strategy/**/*.md) ;;
   *) exit 0 ;;
 esac
 

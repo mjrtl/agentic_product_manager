@@ -38,6 +38,7 @@ Overall Score = average (equal weighting).
 
 - `review.md` (human-readable, <= 900 words)
 - `review.json` (machine-readable)
+- **Location:** `strategy/[name]/prism-reviews/prism-review-[YYYY-MM-DD].[md|json]`
 
 ## Citation standard
 

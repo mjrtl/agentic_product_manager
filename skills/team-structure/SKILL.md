@@ -24,6 +24,10 @@ Get guidance on team structure design models and organizational principles.
 - Common team structure patterns (Squad/Pod, Triad, Feature Teams, Outcome Teams)
 - Design principles for team structure
 
+## Output
+
+- **Location:** `strategy/[name]/team-structure/team-structure-[YYYY-MM-DD].md`
+
 ## Input
 
 Upload or reference:

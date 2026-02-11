@@ -1,6 +1,18 @@
 # PM conventions
 
-Rules that apply when working with files inside `initiatives/` directories.
+Rules that apply when working with files inside `strategy/` and `initiatives/` directories.
+
+## Strategy path rules
+
+### strategy/**/*.md
+- Must follow writing standards from `_shared/writing-standards.md`
+- Vision reviews: `strategy/[name]/vision/vision-review-[YYYY-MM-DD].md`
+- OKR documents: `strategy/[name]/okrs/okrs-[period]-v[N].md`
+- PRISM reviews: `strategy/[name]/prism-reviews/prism-review-[YYYY-MM-DD].[md|json]`
+- Team structure: `strategy/[name]/team-structure/team-structure-[YYYY-MM-DD].md`
+- Evidence: `strategy/[name]/evidence/evidence-[topic]-[YYYY-MM-DD].md`
+
+## Initiative path rules
 
 ## Path-specific rules
 
@@ -31,6 +43,11 @@ Rules that apply when working with files inside `initiatives/` directories.
 - Must include test cards for each LoFA
 - Filename format: `assumptions-[opportunity-name]-v[version].md`
 
+### initiatives/**/prd/pr-faq-*.md
+- Must follow PR-FAQ template from `skills/pr-faq/references/create-pr-faq.md`
+- Filename format: `pr-faq-[feature-name].md`
+- Must include: Press Release, External FAQs (5-8), Internal FAQs (5-8), Strategy Traceability
+
 ### initiatives/**/prd/*.md
 - Must follow PRD structure (9 sections)
 - Always ask clarifying questions before generating
@@ -45,6 +62,20 @@ Rules that apply when working with files inside `initiatives/` directories.
 - Must follow task list format with checkboxes
 - One sub-task at a time execution
 - Conventional commit messages on parent task completion
+
+### initiatives/**/qa/*.md
+- Test plans: `test-plan-[feature-name].md`
+- Test results: `test-results-[feature-name]-[YYYY-MM-DD].md`
+- QA KPI snapshots: `qa-kpis-[YYYY-MM-DD].md` (use `/delivery-metrics --type qa`)
+
+### initiatives/**/delivery-metrics/*.md
+- DORA snapshots: `dora-[YYYY-MM-DD].md` (use `/delivery-metrics --type dora`)
+- Must include benchmark comparison (elite/high/medium/low)
+
+### initiatives/**/launch/*.md
+- Launch plans: `launch-plan-[feature-name].md`
+- Readiness checklists: `readiness-[feature-name].md`
+- Retrospectives: `retro-[feature-name]-[YYYY-MM-DD].md`
 
 ## Version management
 

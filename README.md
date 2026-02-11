@@ -1,6 +1,6 @@
 # Agentic Product Manager
 
-A complete product management toolkit with 20 skills, 3 agents, hooks, and workflows. Works across Claude Code, Cursor, OpenCode, and 15+ other agents via [skills.sh](https://skills.sh/).
+A complete product management toolkit with 23 skills, 3 agents, hooks, and workflows. Works across Claude Code, Cursor, OpenCode, and 15+ other agents via [skills.sh](https://skills.sh/).
 
 Built on the [Continuous Discovery Habits](https://www.producttalk.org/) methodology by Teresa Torres, the [PRISM strategy review framework](https://github.com/jinjin1/Cursor-for-Product-Managers), and proven PM practices.
 
@@ -14,7 +14,7 @@ The fastest way to get started. Works with Claude Code, Cursor, GitHub Copilot, 
 npx skills add https://github.com/mjrtl/agentic_product_manager
 ```
 
-This installs all 20 skills directly into your agent's skill directory.
+This installs all 23 skills directly into your agent's skill directory.
 
 ### Platform-specific install
 
@@ -81,9 +81,19 @@ Then ask your agent: "/skill-creator" to start building a new skill.
 
 ## Usage
 
+### Set up a strategy workspace
+
+Create a strategy workspace before starting initiatives:
+
+```
+/setup-strategy marketplace-growth
+```
+
+This creates `strategy/marketplace-growth/` with folders for vision, OKRs, PRISM reviews, team structure, and evidence.
+
 ### Start an initiative
 
-Scaffold a workspace with structured folders for interviews, opportunities, PRDs, and tasks:
+Scaffold a workspace with structured folders for the full discovery-to-delivery pipeline:
 
 ```
 /setup-initiative mobile-app-redesign
@@ -94,24 +104,24 @@ This creates:
 ```
 initiatives/mobile-app-redesign/
 ├── README.md
-├── user-interviews/
-│   ├── snapshots/
-│   ├── synthesis/
-│   └── transcripts/
+├── user-interviews/{snapshots,synthesis,transcripts}/
 ├── opportunities/
 ├── assumptions/
 ├── solutions/
+├── prd/                    (PRDs, 1-pagers, and PR-FAQs)
 ├── design/
+├── tasks/
+├── qa/
+├── delivery-metrics/
 ├── product-analytics/
-├── prd/
-└── tasks/
+└── launch/
 ```
 
 Every skill saves its output to the appropriate folder. The workflow orchestrator scans this structure to track progress.
 
 ### Run the discovery workflow
 
-The `/discovery-workflow` command detects where you are in the CDH pipeline and suggests the next step:
+The `/discovery-workflow` command detects where you are in the pipeline and suggests the next step:
 
 ```
 /discovery-workflow mobile-app-redesign
@@ -120,8 +130,8 @@ The `/discovery-workflow` command detects where you are in the CDH pipeline and 
 The full pipeline:
 
 ```
-Setup → Interviews → Snapshots → Synthesis → Opportunities →
-Solutions → Assumptions → PRD → Tasks → Delivery
+Strategy → Setup → Interviews → Synthesis → Opportunities →
+Solutions → Assumptions → PR-FAQ → PRD → Tasks → QA → Metrics → Launch
 ```
 
 You can also run each step individually using the skill commands below.
@@ -139,12 +149,13 @@ Use these quarterly to evaluate and refine your product strategy:
 
 See `workflows/strategy-review-cycle.md` for the full review cadence.
 
-## Skills (20)
+## Skills (23)
 
 ### Strategy and review
 
 | Command | Description |
 |---------|-------------|
+| `/setup-strategy` | Scaffold strategy workspace (vision, OKRs, PRISM, team structure) |
 | `/prism-review` | PRISM strategy review; scores 5 dimensions (0-5) with evidence gates |
 | `/vision-review` | Product vision scoring against 4 criteria |
 | `/okr-coach` | OKR sparring partner; sharp, practical criticism |
@@ -164,6 +175,7 @@ See `workflows/strategy-review-cycle.md` for the full review cadence.
 
 | Command | Description |
 |---------|-------------|
+| `/pr-faq` | Amazon-style Press Release and FAQ (root document for products) |
 | `/prd` | Product Requirements Document |
 | `/one-pager` | Decision-focused 1-Pager (Amazon-style narrative) |
 | `/design-brief` | Design brief with JSON (Figma/Make) + Markdown outputs |
@@ -182,6 +194,7 @@ See `workflows/strategy-review-cycle.md` for the full review cadence.
 | `/generate-tasks` | Create task list from PRD or requirements |
 | `/process-tasks` | Work through tasks one by one with commit protocol |
 | `/setup-initiative` | Scaffold initiative folder with templates |
+| `/delivery-metrics` | DORA, QA KPI, and adoption metric snapshots |
 | `/meeting-notes` | Capture 1:1 meeting notes |
 
 ### Workflows
@@ -240,24 +253,27 @@ agentic-product-manager/
 ├── _shared/
 │   ├── writing-standards.md
 │   └── meeting-notes-guide.md
-├── skills/                         # 20 portable SKILL.md files
+├── skills/                         # 23 portable SKILL.md files
 │   ├── pm-copilot/
+│   ├── setup-strategy/            # NEW: strategy workspace scaffolding
 │   ├── prism-review/
 │   ├── vision-review/
 │   ├── okr-coach/
 │   ├── team-structure/
 │   ├── interview-snapshot/
 │   ├── synthesize-interviews/
-│   ├── create-opportunities/
+│   ├── create-opportunities/      # updated: optional ROI assessment
 │   ├── generate-solutions/
 │   ├── test-assumptions/
 │   ├── ice-score/
+│   ├── pr-faq/                    # NEW: Amazon-style PR-FAQ
 │   ├── prd/
 │   ├── one-pager/
 │   ├── design-brief/
 │   ├── figma-prompt/
 │   ├── generate-tasks/
 │   ├── process-tasks/
+│   ├── delivery-metrics/          # NEW: DORA, QA, adoption metrics
 │   ├── setup-initiative/
 │   ├── meeting-notes/
 │   ├── discovery-workflow/

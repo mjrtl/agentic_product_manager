@@ -2,25 +2,34 @@
 name: Discovery Workflow
 description: >
   Full Continuous Discovery Habits pipeline orchestrator. Walks through all stages
-  from initiative setup through assumptions testing, picking up where you left off.
+  from initiative setup through delivery, picking up where you left off.
 argument-hint: "<initiative-name>"
 ---
 
 # Discovery Workflow
 
-Orchestrate the full Continuous Discovery Habits pipeline for an initiative. This meta-skill walks through all stages in order, checking your initiative folder state to pick up where you left off.
+Orchestrate the full product development pipeline for an initiative. This meta-skill walks through all stages in order, checking your initiative folder state to pick up where you left off.
 
 ## Pipeline stages
 
 ```
-1. Setup Initiative
-2. Conduct Interviews -> Create Snapshots
-3. Synthesize Patterns
-4. Create Opportunities
-5. Generate Solutions
-6. Identify & Test Assumptions
-7. Create PRD
-8. Generate Tasks
+Discovery:
+  1. Setup Initiative
+  2. Conduct Interviews -> Create Snapshots
+  3. Synthesize Patterns
+  4. Create Opportunities
+  5. Generate Solutions
+  6. Identify & Test Assumptions
+
+Definition:
+  7. Create PR-FAQ
+  8. Create PRD
+  9. Generate Tasks
+
+Delivery:
+  10. Process Tasks & QA
+  11. Delivery Metrics
+  12. Launch
 ```
 
 ## How it works
@@ -35,8 +44,11 @@ When invoked with an initiative name, this workflow:
    - `opportunities/` - Any opportunity files?
    - `solutions/` - Any solution files?
    - `assumptions/` - Any assumption files?
-   - `prd/` - Any PRD files?
+   - `prd/` - Any PR-FAQ files? Any PRD files?
    - `tasks/` - Any task files?
+   - `qa/` - Any QA files?
+   - `delivery-metrics/` - Any DORA snapshots?
+   - `launch/` - Any launch plans or retros?
 3. **Identifies the next stage** and tells you what to do next
 4. **Invokes the appropriate skill** for the current stage
 
@@ -49,9 +61,13 @@ When invoked with an initiative name, this workflow:
 | 3. Synthesis | >= 1 synthesis file | `/create-opportunities` |
 | 4. Opportunities | >= 1 opportunities file | `/generate-solutions` |
 | 5. Solutions | >= 1 solutions file | `/test-assumptions` |
-| 6. Assumptions | >= 1 assumptions file with test results | `/prd` |
-| 7. PRD | >= 1 PRD file | `/generate-tasks` |
-| 8. Tasks | Task list exists | `/process-tasks` |
+| 6. Assumptions | >= 1 assumptions file with test results | `/pr-faq` |
+| 7. PR-FAQ | >= 1 `pr-faq-*.md` file in `prd/` | `/prd` |
+| 8. PRD | >= 1 PRD file (non pr-faq) | `/generate-tasks` |
+| 9. Tasks | Task list exists | `/process-tasks` |
+| 10. QA | >= 1 file in `qa/` | `/delivery-metrics` |
+| 11. Delivery Metrics | >= 1 file in `delivery-metrics/` | Launch planning |
+| 12. Launch | >= 1 file in `launch/` | Complete |
 
 ## Usage
 
@@ -75,18 +91,22 @@ This workflow is entirely file-system based. No database or state file needed. Y
 ## Progress report format
 
 ```markdown
-## Discovery Progress: [Initiative Name]
+## Discovery progress: [Initiative Name]
 
-| Stage | Status | Files |
-|-------|--------|-------|
-| Setup | Done | README.md |
-| Snapshots | Done (4 files) | snapshot-*.md |
-| Synthesis | Done (1 file) | synthesis-v1.md |
-| Opportunities | In Progress | - |
-| Solutions | Not Started | - |
-| Assumptions | Not Started | - |
-| PRD | Not Started | - |
-| Tasks | Not Started | - |
+| Phase | Stage | Status | Files |
+|-------|-------|--------|-------|
+| Discovery | Setup | Done | README.md |
+| Discovery | Snapshots | Done (4 files) | snapshot-*.md |
+| Discovery | Synthesis | Done (1 file) | synthesis-v1.md |
+| Discovery | Opportunities | In Progress | - |
+| Discovery | Solutions | Not Started | - |
+| Discovery | Assumptions | Not Started | - |
+| Definition | PR-FAQ | Not Started | - |
+| Definition | PRD | Not Started | - |
+| Definition | Tasks | Not Started | - |
+| Delivery | QA | Not Started | - |
+| Delivery | Metrics | Not Started | - |
+| Delivery | Launch | Not Started | - |
 
 **Next step:** Create opportunities from your synthesis.
 Run `/create-opportunities [initiative-name]` to continue.

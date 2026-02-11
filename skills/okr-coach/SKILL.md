@@ -33,6 +33,8 @@ Get sharp, practical criticism on your OKR drafts like a boxing sparring partner
 3. Revised OKR examples
 4. Guardrail and leading indicator suggestions
 
+**Location:** `strategy/[name]/okrs/`
+
 For the complete framework, improvement templates, and diagnostic questions, see `references/okr-sparring-partner.md`.
 
 Follow the writing standards in `_shared/writing-standards.md` for all outputs.

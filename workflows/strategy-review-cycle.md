@@ -2,6 +2,10 @@
 
 This document describes a recurring strategy review workflow for product leaders.
 
+## Strategy workspace
+
+All strategy artifacts live in `strategy/[name]/`. Use `/setup-strategy` to scaffold a new workspace with folders for vision, OKRs, PRISM reviews, team structure, and evidence. Strategy workspaces must exist before creating initiatives; each initiative links back to its parent strategy.
+
 ## Overview
 
 The strategy review cycle is a quarterly rhythm that helps product leaders validate and improve their strategy documents, OKRs, and team structure. It combines multiple review skills into a structured cadence.
@@ -96,10 +100,12 @@ From each review, collect:
 
 ### Update documents
 
-- Revise strategy document based on PRISM feedback
-- Update vision if needed
-- Finalize OKRs with sparring partner improvements
-- Document team structure decisions
+Save all outputs into the strategy workspace:
+- Revise strategy document based on PRISM feedback -> `strategy/[name]/prism-reviews/`
+- Update vision if needed -> `strategy/[name]/vision/`
+- Finalize OKRs with sparring partner improvements -> `strategy/[name]/okrs/`
+- Document team structure decisions -> `strategy/[name]/team-structure/`
+- Update the review log -> `strategy/[name]/review-log.md`
 
 ### Set next cycle date
 

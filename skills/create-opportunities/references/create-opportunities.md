@@ -148,6 +148,18 @@ Mark one leaf node as Target Opportunity (Proposal). This is a reversible candid
 Why, Supporting Evidence, Next Steps
 ```
 
+### 7. ROI Assessment (Optional)
+
+After selecting a target opportunity, optionally create a return-on-investment assessment. This step is useful when stakeholders need a business case before committing resources.
+
+See `references/opportunity-roi.md` for the complete ROI framework including:
+- Value sizing (revenue, cost savings, efficiency)
+- Cost estimation (development and ongoing)
+- ROI calculation and payback period
+- Confidence rating per estimate
+
+Output: `opportunities/[topic]/roi-[topic]-v[N].md`
+
 ## Guardrails
 
 - Opportunities must be in **customer language** (no internal company language)

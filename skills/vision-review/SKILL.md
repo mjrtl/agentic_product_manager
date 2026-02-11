@@ -35,6 +35,7 @@ Review and score a product vision document against proven principles.
 - Strengths, Risks/Gaps, Recommendations
 - Scores per criterion
 - Decision: Proceed / Needs Revision / Hold
+- **Location:** `strategy/[name]/vision/vision-review-[YYYY-MM-DD].md`
 
 For the full scoring details and output template, see `references/product-vision-review.md`.
 

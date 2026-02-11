@@ -45,6 +45,18 @@ Extract opportunities from research and organize them using the Opportunity Solu
 6. **User Review #2**: Present priority comparison, incorporate feedback
 7. **Propose Target**: Mark one leaf node as Target Opportunity (reversible)
 
+## ROI assessment (optional)
+
+After selecting a target opportunity, optionally run an ROI assessment to build a business case:
+
+- Value sizing (revenue impact, cost savings, efficiency gains)
+- Cost estimation (development person-weeks, ongoing costs)
+- ROI calculation with payback period
+- Confidence rating per estimate
+
+See `references/opportunity-roi.md` for the full ROI framework and templates.
+Output: `opportunities/[topic]/roi-[topic]-v[N].md`
+
 For the full process, output structure, and guardrails, see `references/create-opportunities.md`.
 
 Follow the writing standards in `_shared/writing-standards.md` for all outputs.

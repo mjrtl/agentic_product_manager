@@ -2,13 +2,20 @@
 
 This folder contains the product requirements and specifications for this initiative.
 
-## Files to Create
+## Files to create
+
+### PR-FAQs (create first)
+
+PR-FAQ documents live alongside PRDs with the `pr-faq-` prefix.
+
+**Filename:** `pr-faq-[feature-name].md`
+**Usage:** Use `/pr-faq` to generate an Amazon-style Press Release and FAQ before writing a detailed PRD.
 
 ### [initiative-name]-prd.md
 
 Main product requirements document.
 
-**Usage:** Use the product-documents skill's "create a PRD" workflow to generate a structured PRD.
+**Usage:** Use `/prd` to generate a structured PRD.
 
 **Key Sections:**
 - Problem Statement
