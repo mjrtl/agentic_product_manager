@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "session_start": [
+      {
+        "command": "bash hooks/session-start.sh",
+        "description": "Report active initiative status on session start"
+      }
+    ],
+    "post_write": [
+      {
+        "command": "bash hooks/writing-standards-check.sh \"$FILE_PATH\"",
+        "description": "Check writing standards on .md file writes in initiatives/",
+        "pattern": "initiatives/**/*.md"
+      }
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "agentic-product-manager",
+  "version": "1.0.0",
+  "description": "Complete PM toolkit with 20 skills, 3 agents, hooks, and workflows for Claude Code, Cursor, and OpenCode",
+  "author": "Agentic Product Manager Contributors",
+  "license": "MIT",
+  "platforms": ["claude-code", "cursor", "opencode"],
+  "skills": [
+    "skills/pm-copilot",
+    "skills/prism-review",
+    "skills/vision-review",
+    "skills/okr-coach",
+    "skills/team-structure",
+    "skills/interview-snapshot",
+    "skills/synthesize-interviews",
+    "skills/create-opportunities",
+    "skills/generate-solutions",
+    "skills/test-assumptions",
+    "skills/ice-score",
+    "skills/prd",
+    "skills/one-pager",
+    "skills/design-brief",
+    "skills/figma-prompt",
+    "skills/generate-tasks",
+    "skills/process-tasks",
+    "skills/setup-initiative",
+    "skills/meeting-notes",
+    "skills/discovery-workflow"
+  ],
+  "agents": [
+    "agents/pm-researcher.md",
+    "agents/pm-writer.md",
+    "agents/pm-analyst.md"
+  ],
+  "shared": [
+    "_shared/writing-standards.md",
+    "_shared/meeting-notes-guide.md"
+  ],
+  "workflows": [
+    "workflows/discovery-to-delivery.md",
+    "workflows/strategy-review-cycle.md"
+  ]
+}
