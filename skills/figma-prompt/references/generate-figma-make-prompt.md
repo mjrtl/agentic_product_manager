@@ -10,7 +10,7 @@ Generate **Figma Make-ready prompts** based on design briefs and design systems.
 
 ### Storage Location
 
-- **Per Initiative**: `initiatives/[initiative-name]/design/`
+- **Per Initiative**: `initiatives/[initiative-name]/definition/design/`
 - **File Naming Convention**: `figma-make-prompt-[feature-name].json`
 
 ### JSON Schema
@@ -60,7 +60,7 @@ Generate **Figma Make-ready prompts** based on design briefs and design systems.
 6. **Balanced Formatting**: Apply optimal balance between readability and compression
 7. **JSON Optimization**: Remove unnecessary whitespace while maintaining structure
 8. **Character Validation**: Ensure compliance with 5000 character limit
-9. **File Storage**: Save to `initiatives/[initiative-name]/design/` folder
+9. **File Storage**: Save to `initiatives/[initiative-name]/definition/design/` folder
 
 ## Generation Rules
 

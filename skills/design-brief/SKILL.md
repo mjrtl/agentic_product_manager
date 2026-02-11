@@ -18,7 +18,7 @@ Generate consistent design briefs outputting both machine-readable JSON and stak
 
 ## Output
 
-- **Location:** `initiatives/[initiative-name]/design/`
+- **Location:** `initiatives/[initiative-name]/definition/design/`
 - **Files:** `design-brief-[feature-name].json` and `design-brief-[feature-name].md`
 
 ## Process

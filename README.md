@@ -104,20 +104,23 @@ This creates:
 ```
 initiatives/mobile-app-redesign/
 ├── README.md
-├── user-interviews/{snapshots,synthesis,transcripts}/
-├── opportunities/
-├── assumptions/
-├── solutions/
-├── prd/                    (PRDs, 1-pagers, and PR-FAQs)
-├── design/
-├── tasks/
-├── qa/
-├── delivery-metrics/
-├── product-analytics/
-└── launch/
+├── discovery/
+│   ├── user-interviews/{snapshots,synthesis,transcripts}/
+│   ├── opportunities/
+│   ├── assumptions/
+│   └── solutions/
+├── definition/
+│   ├── prd/                (PRDs, 1-pagers, and PR-FAQs)
+│   └── design/
+└── delivery/
+    ├── tasks/
+    ├── qa/
+    ├── delivery-metrics/
+    ├── product-analytics/
+    └── launch/
 ```
 
-Every skill saves its output to the appropriate folder. The workflow orchestrator scans this structure to track progress.
+Every skill saves its output to the appropriate folder under discovery, definition, or delivery. The workflow orchestrator scans this structure to track progress.
 
 ### Run the discovery workflow
 

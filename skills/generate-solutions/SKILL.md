@@ -23,7 +23,7 @@ Generate multiple potential solutions through structured AI-human collaborative 
 ## Output
 
 - **Format:** Markdown (`.md`)
-- **Location:** `solutions/[topic]/`
+- **Location:** `discovery/solutions/[topic]/`
 - **Filename:** `solutions-[topic]-v[version].md`
 
 ## Critical rule

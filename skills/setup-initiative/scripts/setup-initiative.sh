@@ -55,11 +55,13 @@ echo "  Goal: $GOAL"
 echo "  Location: $TARGET_DIR"
 echo ""
 
-# Create folder structure
-mkdir -p "$TARGET_DIR"/{user-interviews/{snapshots,synthesis,transcripts},opportunities,assumptions,solutions,design,product-analytics,prd,tasks,qa,delivery-metrics,launch}
+# Create folder structure: discovery / definition / delivery
+mkdir -p "$TARGET_DIR"/discovery/{user-interviews/{snapshots,synthesis,transcripts},opportunities,assumptions,solutions}
+mkdir -p "$TARGET_DIR"/definition/{prd,design}
+mkdir -p "$TARGET_DIR"/delivery/{tasks,qa,delivery-metrics,product-analytics,launch}
 
 # Create .gitkeep files in empty directories
-for dir in "$TARGET_DIR"/user-interviews/{snapshots,synthesis,transcripts}; do
+for dir in "$TARGET_DIR"/discovery/user-interviews/{snapshots,synthesis,transcripts}; do
   touch "$dir/.gitkeep"
 done
 
@@ -80,10 +82,20 @@ copy_template() {
 # Copy main README
 copy_template "$TEMPLATE_DIR/README.md" "$TARGET_DIR/README.md"
 
-# Copy subfolder READMEs
-for folder in assumptions design opportunities prd product-analytics solutions tasks user-interviews qa delivery-metrics launch; do
+# Copy subfolder READMEs into phase subdirs
+for folder in user-interviews opportunities assumptions solutions; do
   if [ -f "$TEMPLATE_DIR/$folder/README.md" ]; then
-    copy_template "$TEMPLATE_DIR/$folder/README.md" "$TARGET_DIR/$folder/README.md"
+    copy_template "$TEMPLATE_DIR/$folder/README.md" "$TARGET_DIR/discovery/$folder/README.md"
+  fi
+done
+for folder in prd design; do
+  if [ -f "$TEMPLATE_DIR/$folder/README.md" ]; then
+    copy_template "$TEMPLATE_DIR/$folder/README.md" "$TARGET_DIR/definition/$folder/README.md"
+  fi
+done
+for folder in tasks qa delivery-metrics product-analytics launch; do
+  if [ -f "$TEMPLATE_DIR/$folder/README.md" ]; then
+    copy_template "$TEMPLATE_DIR/$folder/README.md" "$TARGET_DIR/delivery/$folder/README.md"
   fi
 done
 
@@ -102,24 +114,20 @@ echo ""
 echo "Folder structure:"
 echo "  $TARGET_DIR/"
 echo "  ├── README.md"
-echo "  │"
-echo "  │   ## Discovery"
-echo "  ├── user-interviews/"
-echo "  │   ├── README.md, snapshots/, synthesis/, transcripts/"
-echo "  ├── opportunities/        └── README.md"
-echo "  ├── assumptions/           └── README.md"
-echo "  ├── solutions/             └── README.md"
-echo "  │"
-echo "  │   ## Definition"
-echo "  ├── prd/                   └── README.md"
-echo "  ├── design/                └── README.md"
-echo "  │"
-echo "  │   ## Delivery"
-echo "  ├── tasks/                 └── README.md"
-echo "  ├── qa/                    └── README.md"
-echo "  ├── delivery-metrics/      └── README.md"
-echo "  ├── product-analytics/     └── README.md"
-echo "  └── launch/                └── README.md"
+echo "  ├── discovery/"
+echo "  │   ├── user-interviews/   (snapshots/, synthesis/, transcripts/)"
+echo "  │   ├── opportunities/"
+echo "  │   ├── assumptions/"
+echo "  │   └── solutions/"
+echo "  ├── definition/"
+echo "  │   ├── prd/"
+echo "  │   └── design/"
+echo "  └── delivery/"
+echo "      ├── tasks/"
+echo "      ├── qa/"
+echo "      ├── delivery-metrics/"
+echo "      ├── product-analytics/"
+echo "      └── launch/"
 echo ""
 echo "Next steps (Discovery):"
 echo "  1. Start user research: /interview-snapshot"

@@ -35,7 +35,7 @@ Outcome -> Opportunity -> Lessons -> Solutions & Assumptions -> Decision Request
 ## Output
 
 - **Format:** Markdown (`.md`)
-- **Location:** `/prd/`
+- **Location:** `definition/prd/`
 - **Filename:** `1-pager-[initiative-name].md`
 
 ## Rules

@@ -38,17 +38,17 @@ When invoked with an initiative name, this workflow:
 
 1. **Checks initiative state**: Looks for `initiatives/[name]/` folder
    - If it doesn't exist, runs `/setup-initiative` first
-2. **Scans each stage folder** to determine progress:
-   - `user-interviews/snapshots/` - Any snapshot files?
-   - `user-interviews/synthesis/` - Any synthesis files?
-   - `opportunities/` - Any opportunity files?
-   - `solutions/` - Any solution files?
-   - `assumptions/` - Any assumption files?
-   - `prd/` - Any PR-FAQ files? Any PRD files?
-   - `tasks/` - Any task files?
-   - `qa/` - Any QA files?
-   - `delivery-metrics/` - Any DORA snapshots?
-   - `launch/` - Any launch plans or retros?
+2. **Scans each stage folder** to determine progress (paths relative to initiative folder):
+   - `discovery/user-interviews/snapshots/` - Any snapshot files?
+   - `discovery/user-interviews/synthesis/` - Any synthesis files?
+   - `discovery/opportunities/` - Any opportunity files?
+   - `discovery/solutions/` - Any solution files?
+   - `discovery/assumptions/` - Any assumption files?
+   - `definition/prd/` - Any PR-FAQ files? Any PRD files?
+   - `delivery/tasks/` - Any task files?
+   - `delivery/qa/` - Any QA files?
+   - `delivery/delivery-metrics/` - Any DORA snapshots?
+   - `delivery/launch/` - Any launch plans or retros?
 3. **Identifies the next stage** and tells you what to do next
 4. **Invokes the appropriate skill** for the current stage
 
@@ -62,12 +62,12 @@ When invoked with an initiative name, this workflow:
 | 4. Opportunities | >= 1 opportunities file | `/generate-solutions` |
 | 5. Solutions | >= 1 solutions file | `/test-assumptions` |
 | 6. Assumptions | >= 1 assumptions file with test results | `/pr-faq` |
-| 7. PR-FAQ | >= 1 `pr-faq-*.md` file in `prd/` | `/prd` |
-| 8. PRD | >= 1 PRD file (non pr-faq) | `/generate-tasks` |
-| 9. Tasks | Task list exists | `/process-tasks` |
-| 10. QA | >= 1 file in `qa/` | `/delivery-metrics` |
-| 11. Delivery Metrics | >= 1 file in `delivery-metrics/` | Launch planning |
-| 12. Launch | >= 1 file in `launch/` | Complete |
+| 7. PR-FAQ | >= 1 `pr-faq-*.md` file in `definition/prd/` | `/prd` |
+| 8. PRD | >= 1 PRD file (non pr-faq) in `definition/prd/` | `/generate-tasks` |
+| 9. Tasks | Task list exists in `delivery/tasks/` | `/process-tasks` |
+| 10. QA | >= 1 file in `delivery/qa/` | `/delivery-metrics` |
+| 11. Delivery Metrics | >= 1 file in `delivery/delivery-metrics/` | Launch planning |
+| 12. Launch | >= 1 file in `delivery/launch/` | Complete |
 
 ## Usage
 

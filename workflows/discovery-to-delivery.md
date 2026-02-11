@@ -51,7 +51,7 @@ Create the standardized folder structure for a new initiative. This establishes 
 ### 2. Conduct interviews and create snapshots
 
 **Skill:** `/interview-snapshot`
-**Output:** `user-interviews/snapshots/snapshot-[participant]-[date].md`
+**Output:** `discovery/user-interviews/snapshots/snapshot-[participant]-[date].md`
 
 Conduct qualitative interviews or user test sessions, then extract structured insights into interview snapshots.
 
@@ -67,7 +67,7 @@ Conduct qualitative interviews or user test sessions, then extract structured in
 ### 3. Synthesize patterns
 
 **Skill:** `/synthesize-interviews`
-**Output:** `user-interviews/synthesis/synthesis-[initiative]-v[N].md`
+**Output:** `discovery/user-interviews/synthesis/synthesis-[initiative]-v[N].md`
 
 Analyze multiple snapshots to identify shared patterns, integrate experience maps, and create comprehensive insights.
 
@@ -82,7 +82,7 @@ Analyze multiple snapshots to identify shared patterns, integrate experience map
 ### 4. Create opportunities
 
 **Skill:** `/create-opportunities`
-**Output:** `opportunities/[topic]/opportunities-[topic]-v[N].md`
+**Output:** `discovery/opportunities/[topic]/opportunities-[topic]-v[N].md`
 
 Extract opportunities from research using the Opportunity Solution Tree framework. Optionally assess ROI for the target opportunity.
 
@@ -99,7 +99,7 @@ Extract opportunities from research using the Opportunity Solution Tree framewor
 ### 5. Generate solutions
 
 **Skill:** `/generate-solutions`
-**Output:** `solutions/[topic]/solutions-[topic]-v[N].md`
+**Output:** `discovery/solutions/[topic]/solutions-[topic]-v[N].md`
 
 Generate multiple potential solutions through AI-human collaborative ideation.
 
@@ -115,7 +115,7 @@ Generate multiple potential solutions through AI-human collaborative ideation.
 ### 6. Identify and test assumptions
 
 **Skill:** `/test-assumptions`
-**Output:** `assumptions/[topic]/assumptions-[opportunity]-v[N].md`
+**Output:** `discovery/assumptions/[topic]/assumptions-[opportunity]-v[N].md`
 
 Extract assumptions, prioritize "leap of faith" assumptions, and design lightweight tests.
 
@@ -135,7 +135,7 @@ Extract assumptions, prioritize "leap of faith" assumptions, and design lightwei
 ### 7. Create PR-FAQ
 
 **Skill:** `/pr-faq`
-**Output:** `prd/pr-faq-[feature-name].md`
+**Output:** `definition/prd/pr-faq-[feature-name].md`
 
 Create an Amazon-style Press Release and FAQ document. Acts as the root document for a product or feature, forcing clear thinking about customer value.
 
@@ -151,7 +151,7 @@ Create an Amazon-style Press Release and FAQ document. Acts as the root document
 ### 8. Create PRD
 
 **Skill:** `/prd` or `/one-pager`
-**Output:** `prd/prd-[feature].md` or `prd/1-pager-[initiative].md`
+**Output:** `definition/prd/prd-[feature].md` or `definition/prd/1-pager-[initiative].md`
 
 Create a Product Requirements Document or decision-focused 1-Pager based on the PR-FAQ.
 
@@ -166,7 +166,7 @@ Create a Product Requirements Document or decision-focused 1-Pager based on the 
 ### 9. Generate tasks
 
 **Skill:** `/generate-tasks`
-**Output:** `tasks/tasks-[feature].md`
+**Output:** `delivery/tasks/tasks-[feature].md`
 
 Break the PRD into implementation tasks.
 
@@ -184,7 +184,7 @@ Break the PRD into implementation tasks.
 ### 10. Process tasks and QA
 
 **Skills:** `/process-tasks`, `/delivery-metrics --type qa`
-**Output:** `tasks/` (completed tasks), `qa/` (test plans and results)
+**Output:** `delivery/tasks/` (completed tasks), `delivery/qa/` (test plans and results)
 
 Work through tasks systematically. Track quality through QA KPIs.
 
@@ -200,7 +200,7 @@ Work through tasks systematically. Track quality through QA KPIs.
 ### 11. Delivery metrics
 
 **Skill:** `/delivery-metrics --type dora`
-**Output:** `delivery-metrics/dora-[YYYY-MM-DD].md`
+**Output:** `delivery/delivery-metrics/dora-[YYYY-MM-DD].md`
 
 Capture DORA metrics during active development to track deployment health.
 
@@ -210,7 +210,7 @@ Capture DORA metrics during active development to track deployment health.
 ### 12. Launch
 
 **Skill:** `/delivery-metrics --type adoption`
-**Output:** `launch/` (plans and checklists), `product-analytics/adoption-[YYYY-MM-DD].md`
+**Output:** `delivery/launch/` (plans and checklists), `delivery/product-analytics/adoption-[YYYY-MM-DD].md`
 
 Execute launch plan and track adoption metrics post-launch.
 

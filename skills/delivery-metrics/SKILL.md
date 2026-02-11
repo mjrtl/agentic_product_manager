@@ -53,9 +53,9 @@ Capture and track delivery performance through structured metric snapshots.
 
 ## Output
 
-- **DORA:** `delivery-metrics/dora-[YYYY-MM-DD].md`
-- **QA:** `qa/qa-kpis-[YYYY-MM-DD].md`
-- **Adoption:** `product-analytics/adoption-[YYYY-MM-DD].md`
+- **DORA:** `delivery/delivery-metrics/dora-[YYYY-MM-DD].md`
+- **QA:** `delivery/qa/qa-kpis-[YYYY-MM-DD].md`
+- **Adoption:** `delivery/product-analytics/adoption-[YYYY-MM-DD].md`
 
 For full metric definitions, benchmarks, and snapshot templates, see `references/delivery-metrics-guide.md`.
 

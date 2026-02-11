@@ -21,7 +21,7 @@ Create a detailed Product Requirements Document (PRD) in Markdown format.
 1. **Receive initial prompt**: Brief description of the feature
 2. **Ask clarifying questions**: 3-5 essential questions with lettered options (A, B, C, D)
 3. **Generate PRD**: Based on prompt and answers
-4. **Save PRD**: As `prd-[feature-name].md` in the `/prd/` directory
+4. **Save PRD**: As `prd-[feature-name].md` in the `definition/prd/` directory
 
 ## PRD sections
 

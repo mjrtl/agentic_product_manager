@@ -34,36 +34,36 @@
 ## Folder structure
 
 ### Discovery
-- **[user-interviews/](./user-interviews/)** - Customer discovery and research
+- **[discovery/user-interviews/](./discovery/user-interviews/)** - Customer discovery and research
   - `snapshots/` - Individual interview insights
   - `synthesis/` - Cross-interview analysis and patterns
   - `transcripts/` - Raw interview recordings and notes
-- **[opportunities/](./opportunities/)** - Identified opportunities and pain points
-- **[assumptions/](./assumptions/)** - Assumption logs and test cards
-- **[solutions/](./solutions/)** - Solution explorations
+- **[discovery/opportunities/](./discovery/opportunities/)** - Identified opportunities and pain points
+- **[discovery/assumptions/](./discovery/assumptions/)** - Assumption logs and test cards
+- **[discovery/solutions/](./discovery/solutions/)** - Solution explorations
 
 ### Definition
-- **[prd/](./prd/)** - PRDs, 1-pagers, and PR-FAQs
-- **[design/](./design/)** - Design briefs and Figma Make prompts
+- **[definition/prd/](./definition/prd/)** - PRDs, 1-pagers, and PR-FAQs
+- **[definition/design/](./definition/design/)** - Design briefs and Figma Make prompts
 
 ### Delivery
-- **[tasks/](./tasks/)** - Implementation tasks
-- **[qa/](./qa/)** - Test plans, test results, and QA KPI snapshots
-- **[delivery-metrics/](./delivery-metrics/)** - DORA metric snapshots
-- **[product-analytics/](./product-analytics/)** - Adoption metrics and data analysis
-- **[launch/](./launch/)** - Launch plans, readiness checklists, and retrospectives
+- **[delivery/tasks/](./delivery/tasks/)** - Implementation tasks
+- **[delivery/qa/](./delivery/qa/)** - Test plans, test results, and QA KPI snapshots
+- **[delivery/delivery-metrics/](./delivery/delivery-metrics/)** - DORA metric snapshots
+- **[delivery/product-analytics/](./delivery/product-analytics/)** - Adoption metrics and data analysis
+- **[delivery/launch/](./delivery/launch/)** - Launch plans, readiness checklists, and retrospectives
 
 ## Quick links
 
-- [PRD](./prd/)
-- [User Research Summary](./user-interviews/synthesis/)
-- [Priority Opportunities](./opportunities/)
-- [Assumptions & Tests](./assumptions/)
-- [Solution Explorations](./solutions/)
-- [Implementation Tasks](./tasks/)
-- [QA](./qa/)
-- [Delivery Metrics](./delivery-metrics/)
-- [Launch](./launch/)
+- [PRD](./definition/prd/)
+- [User Research Summary](./discovery/user-interviews/synthesis/)
+- [Priority Opportunities](./discovery/opportunities/)
+- [Assumptions & Tests](./discovery/assumptions/)
+- [Solution Explorations](./discovery/solutions/)
+- [Implementation Tasks](./delivery/tasks/)
+- [QA](./delivery/qa/)
+- [Delivery Metrics](./delivery/delivery-metrics/)
+- [Launch](./delivery/launch/)
 
 ## Notes
 

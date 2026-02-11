@@ -19,7 +19,7 @@ Create a detailed task list in Markdown format from user requirements or a PRD.
 ## Output
 
 - **Format:** Markdown (`.md`)
-- **Location:** `/tasks/`
+- **Location:** `delivery/tasks/`
 - **Filename:** `tasks-[feature-name].md`
 
 ## Process
@@ -31,7 +31,7 @@ Create a detailed task list in Markdown format from user requirements or a PRD.
 5. **Phase 2 - Generate sub-tasks**: Break down each parent task into actionable sub-tasks
 6. **Identify relevant files**: List files that will need to be created or modified
 7. **Generate final output**: Combine into final Markdown structure
-8. **Save task list**: Save to `/tasks/` directory
+8. **Save task list**: Save to `delivery/tasks/` directory
 
 ## Target audience
 

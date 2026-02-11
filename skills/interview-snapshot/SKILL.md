@@ -21,7 +21,7 @@ Raw interview notes, transcripts, or recordings.
 ## Output
 
 - **Format:** Markdown (`.md`)
-- **Location:** `user-interviews/snapshots/`
+- **Location:** `discovery/user-interviews/snapshots/`
 - **Filename:** `snapshot-[participant-name]-[date].md`
 
 ## Process

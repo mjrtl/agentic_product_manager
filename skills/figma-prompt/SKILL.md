@@ -30,7 +30,7 @@ Figma Make prompts are limited to **maximum 5000 characters**.
 
 ## Output
 
-- **Location:** `initiatives/[initiative-name]/design/`
+- **Location:** `initiatives/[initiative-name]/definition/design/`
 - **File:** `figma-make-prompt-[feature-name].json`
 
 ## Process

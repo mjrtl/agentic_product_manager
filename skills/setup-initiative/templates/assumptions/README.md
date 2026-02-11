@@ -33,7 +33,7 @@ Use the continuous-discovery skill's "identify and test assumptions" workflow. O
 
 ## Workflow
 
-1. Start from a prioritized opportunity in `opportunities/`.
+1. Start from a prioritized opportunity in `discovery/opportunities/`.
 2. Create an assumptions file here and identify LoFA assumptions.
 3. Run smallest viable tests; record results and decisions.
 4. Update ideas/opportunities based on evidence.

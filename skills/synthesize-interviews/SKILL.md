@@ -18,13 +18,13 @@ Analyze multiple interview snapshots to identify common patterns, integrate expe
 
 ## Input
 
-- Minimum 3-5 interview snapshots (from `user-interviews/snapshots/`)
+- Minimum 3-5 interview snapshots (from `discovery/user-interviews/snapshots/`)
 - All snapshots should follow consistent format and cover similar topics
 
 ## Output
 
 - **Format:** Markdown (`.md`)
-- **Location:** `user-interviews/synthesis/`
+- **Location:** `discovery/user-interviews/synthesis/`
 - **Filename:** `synthesis-[initiative-name]-v[version].md`
 
 ## Key features

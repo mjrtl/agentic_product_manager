@@ -18,14 +18,14 @@ Extract opportunities from research and organize them using the Opportunity Solu
 
 ## Input
 
-- Interview snapshots from `user-interviews/snapshots/`
-- Synthesis documents from `user-interviews/synthesis/`
+- Interview snapshots from `discovery/user-interviews/snapshots/`
+- Synthesis documents from `discovery/user-interviews/synthesis/`
 - Strategic materials from `company-level-context/`
 
 ## Output
 
 - **Format:** Markdown (`.md`)
-- **Location:** `opportunities/[topic]/`
+- **Location:** `discovery/opportunities/[topic]/`
 - **Filename:** `opportunities-[topic]-v[version].md`
 
 ## Key principles
@@ -55,7 +55,7 @@ After selecting a target opportunity, optionally run an ROI assessment to build 
 - Confidence rating per estimate
 
 See `references/opportunity-roi.md` for the full ROI framework and templates.
-Output: `opportunities/[topic]/roi-[topic]-v[N].md`
+Output: `discovery/opportunities/[topic]/roi-[topic]-v[N].md`
 
 For the full process, output structure, and guardrails, see `references/create-opportunities.md`.
 

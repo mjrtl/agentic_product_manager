@@ -94,7 +94,7 @@ Rate the overall confidence of this ROI assessment:
 ## Output
 
 - **Format:** Markdown (`.md`)
-- **Location:** `opportunities/[topic]/roi-[topic]-v[N].md`
+- **Location:** `discovery/opportunities/[topic]/roi-[topic]-v[N].md`
 - **Version management:** Check existing files, auto-increment version, never overwrite
 
 ## Process

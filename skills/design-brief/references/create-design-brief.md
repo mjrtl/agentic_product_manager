@@ -9,7 +9,7 @@ Leverage the project's **design system** (components and color/typography/spacin
 
 ### Storage Location
 
-- **Per Initiative**: `initiatives/[initiative-name]/design/`
+- **Per Initiative**: `initiatives/[initiative-name]/definition/design/`
 - **File Naming Convention**: `design-brief-[feature-name].[json|md]`
 
 ### A) Machine-Readable JSON (Figma/variables & components friendly)
@@ -105,7 +105,7 @@ Generate these sections with clear headings:
 5. **Channel Consistency**: Ensure Ads/Branding/Social/Prototype share the same variables and copy principles.
 6. **Accessibility Gate**: Check WCAG 2.2 AA, minimum 44px touch, RTL/multilingual support.
 7. **Output Dual-Track**: Generate JSON (tool input) + Markdown (review) simultaneously.
-8. **File Storage**: Save to `initiatives/[initiative-name]/design/` folder.
+8. **File Storage**: Save to `initiatives/[initiative-name]/definition/design/` folder.
 
 ## Generation Rules
 

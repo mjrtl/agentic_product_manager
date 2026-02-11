@@ -52,56 +52,39 @@ Create the folder structure manually:
 ```
 initiatives/[initiative-name]/
 ├── README.md
-│
-│   ## Discovery
-├── user-interviews/
-│   ├── README.md
-│   ├── snapshots/
-│   ├── synthesis/
-│   └── transcripts/
-├── opportunities/
-│   └── README.md
-├── assumptions/
-│   └── README.md
-├── solutions/
-│   └── README.md
-│
-│   ## Definition
-├── prd/
-│   └── README.md          (PRDs, 1-pagers, and PR-FAQs)
-├── design/
-│   └── README.md
-│
-│   ## Delivery
-├── tasks/
-│   └── README.md
-├── qa/
-│   └── README.md
-├── delivery-metrics/
-│   └── README.md
-├── product-analytics/
-│   └── README.md
-└── launch/
-    └── README.md
+├── discovery/
+│   ├── user-interviews/   (README.md, snapshots/, synthesis/, transcripts/)
+│   ├── opportunities/
+│   ├── assumptions/
+│   └── solutions/
+├── definition/
+│   ├── prd/               (PRDs, 1-pagers, and PR-FAQs)
+│   └── design/
+└── delivery/
+    ├── tasks/
+    ├── qa/
+    ├── delivery-metrics/
+    ├── product-analytics/
+    └── launch/
 ```
 
 ## Integration points
 
-After creation, the user can use these skills in the initiative:
+After creation, the user can use these skills in the initiative. Paths are relative to the initiative folder:
 
 | Skill | Location | Phase |
 |-------|----------|-------|
-| `/interview-snapshot` | `user-interviews/snapshots/` | Discovery |
-| `/synthesize-interviews` | `user-interviews/synthesis/` | Discovery |
-| `/create-opportunities` | `opportunities/` | Discovery |
-| `/generate-solutions` | `solutions/` | Discovery |
-| `/test-assumptions` | `assumptions/` | Discovery |
-| `/pr-faq` | `prd/` | Definition |
-| `/prd` | `prd/` | Definition |
-| `/design-brief` | `design/` | Definition |
-| `/figma-prompt` | `design/` | Definition |
-| `/generate-tasks` | `tasks/` | Delivery |
-| `/process-tasks` | `tasks/` | Delivery |
-| `/delivery-metrics` | `qa/`, `delivery-metrics/`, `product-analytics/` | Delivery |
+| `/interview-snapshot` | `discovery/user-interviews/snapshots/` | Discovery |
+| `/synthesize-interviews` | `discovery/user-interviews/synthesis/` | Discovery |
+| `/create-opportunities` | `discovery/opportunities/` | Discovery |
+| `/generate-solutions` | `discovery/solutions/` | Discovery |
+| `/test-assumptions` | `discovery/assumptions/` | Discovery |
+| `/pr-faq` | `definition/prd/` | Definition |
+| `/prd` | `definition/prd/` | Definition |
+| `/design-brief` | `definition/design/` | Definition |
+| `/figma-prompt` | `definition/design/` | Definition |
+| `/generate-tasks` | `delivery/tasks/` | Delivery |
+| `/process-tasks` | `delivery/tasks/` | Delivery |
+| `/delivery-metrics` | `delivery/qa/`, `delivery/delivery-metrics/`, `delivery/product-analytics/` | Delivery |
 
 Follow the writing standards in `_shared/writing-standards.md` for all outputs.

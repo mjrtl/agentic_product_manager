@@ -127,20 +127,23 @@ Initiatives live in `initiatives/[kebab-case-name]/` with this structure:
 ```
 initiatives/[name]/
 ├── README.md
-├── user-interviews/{snapshots,synthesis,transcripts}/
-├── opportunities/
-├── assumptions/
-├── solutions/
-├── prd/                    (PRDs, 1-pagers, and PR-FAQs)
-├── design/
-├── tasks/
-├── qa/
-├── delivery-metrics/
-├── product-analytics/
-└── launch/
+├── discovery/
+│   ├── user-interviews/{snapshots,synthesis,transcripts}/
+│   ├── opportunities/
+│   ├── assumptions/
+│   └── solutions/
+├── definition/
+│   ├── prd/                (PRDs, 1-pagers, and PR-FAQs)
+│   └── design/
+└── delivery/
+    ├── tasks/
+    ├── qa/
+    ├── delivery-metrics/
+    ├── product-analytics/
+    └── launch/
 ```
 
-When a skill references file locations (e.g., "save to `user-interviews/snapshots/`"), these paths are relative to the active initiative folder.
+When a skill references file locations (e.g., "save to `discovery/user-interviews/snapshots/`"), these paths are relative to the active initiative folder.
 
 ## File naming conventions
 
