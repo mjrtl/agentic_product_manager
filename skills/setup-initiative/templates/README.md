@@ -13,6 +13,7 @@
 ## Current status
 
 ### 1. Discovery
+- [ ] Opportunity Discovery Document completed ([opportunity-discovery-doc.md](./discovery/opportunity-discovery-doc.md))
 - [ ] Discovery context filled ([discovery_context.md](./discovery/discovery_context.md))
 - [ ] User research complete (3+ interview snapshots)
 - [ ] Synthesis complete
@@ -35,6 +36,7 @@
 ## Folder structure
 
 ### 1. Discovery
+- **[discovery/opportunity-discovery-doc.md](./discovery/opportunity-discovery-doc.md)** - Opportunity Discovery Document (ODD) — opportunity, target users, behaviours, assumptions
 - **[discovery/discovery_context.md](./discovery/discovery_context.md)** - Keyrock process links, job-to-be-done, and problem statement (pointer + summary; source of truth in Notion)
 - **[discovery/user-interviews/](./discovery/user-interviews/)** - Customer discovery and research
   - `snapshots/` - Individual interview insights
@@ -57,6 +59,7 @@
 
 ## Quick links
 
+- [Opportunity Discovery Document](./discovery/opportunity-discovery-doc.md)
 - [Discovery context](./discovery/discovery_context.md)
 - [PRD](./definition/prd/)
 - [User Research Summary](./discovery/user-interviews/synthesis/)

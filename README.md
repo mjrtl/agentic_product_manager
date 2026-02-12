@@ -1,6 +1,6 @@
 # Agentic Product Manager
 
-A complete product management toolkit with 23 skills, 3 agents, hooks, and workflows. Works across Claude Code, Cursor, OpenCode, and 15+ other agents via [skills.sh](https://skills.sh/).
+A complete product management toolkit with 24 skills, 4 agents, hooks, and workflows. Works across Claude Code, Cursor, OpenCode, and 15+ other agents via [skills.sh](https://skills.sh/).
 
 Built on the [Continuous Discovery Habits](https://www.producttalk.org/) methodology by Teresa Torres, the [PRISM strategy review framework](https://github.com/jinjin1/Cursor-for-Product-Managers), and proven PM practices.
 
@@ -14,7 +14,7 @@ The fastest way to get started. Works with Claude Code, Cursor, GitHub Copilot, 
 npx skills add https://github.com/mjrtl/agentic_product_manager
 ```
 
-This installs all 23 skills directly into your agent's skill directory.
+This installs all 24 skills directly into your agent's skill directory.
 
 ### Platform-specific install
 
@@ -158,7 +158,7 @@ Use these quarterly to evaluate and refine your product strategy:
 
 See `workflows/strategy-review-cycle.md` for the full review cadence.
 
-## Skills (23)
+## Skills (24)
 
 ### Strategy and review
 
@@ -174,6 +174,7 @@ See `workflows/strategy-review-cycle.md` for the full review cadence.
 
 | Command | Description |
 |---------|-------------|
+| `/scope-problem` | Redefine and scope problems using facilitation techniques |
 | `/interview-snapshot` | Create structured interview snapshots from raw notes |
 | `/synthesize-interviews` | Synthesize patterns across multiple snapshots |
 | `/create-opportunities` | Extract and prioritize opportunities using Opportunity Solution Trees |
@@ -202,7 +203,7 @@ See `workflows/strategy-review-cycle.md` for the full review cadence.
 |---------|-------------|
 | `/generate-tasks` | Create task list from PRD or requirements |
 | `/process-tasks` | Work through tasks one by one with commit protocol |
-| `/setup-initiative` | Scaffold initiative folder with templates |
+| `/setup-initiative` | CPO interrogation, ODD generation, and initiative scaffolding |
 | `/delivery-metrics` | DORA, QA KPI, and adoption metric snapshots |
 | `/meeting-notes` | Capture 1:1 meeting notes |
 
@@ -220,13 +221,14 @@ See `workflows/strategy-review-cycle.md` for the full review cadence.
 
 ## Agents (Claude Code)
 
-Three specialized agents handle different types of work:
+Four specialized agents handle different types of work:
 
 | Agent | Role |
 |-------|------|
 | **pm-researcher** | Read-only context gatherer; scans initiative folders, finds evidence |
 | **pm-writer** | Document creator; enforces writing standards on all outputs |
 | **pm-analyst** | Scoring and evaluation specialist; runs ICE, PRISM, vision reviews |
+| **pm-cpo** | Initiative interrogator and strategic product gatekeeper |
 
 ## Workflows
 
@@ -262,7 +264,7 @@ agentic-product-manager/
 ├── _shared/
 │   ├── writing-standards.md
 │   └── meeting-notes-guide.md
-├── skills/                         # 23 portable SKILL.md files
+├── skills/                         # 24 portable SKILL.md files
 │   ├── pm-copilot/
 │   ├── setup-strategy/            # NEW: strategy workspace scaffolding
 │   ├── prism-review/
@@ -284,6 +286,7 @@ agentic-product-manager/
 │   ├── process-tasks/
 │   ├── delivery-metrics/          # NEW: DORA, QA, adoption metrics
 │   ├── setup-initiative/
+│   ├── scope-problem/
 │   ├── meeting-notes/
 │   ├── discovery-workflow/
 │   ├── find-skills/              # companion (via import-skill.sh)
@@ -291,7 +294,8 @@ agentic-product-manager/
 ├── agents/
 │   ├── pm-researcher.md
 │   ├── pm-writer.md
-│   └── pm-analyst.md
+│   ├── pm-analyst.md
+│   └── pm-cpo.md
 ├── hooks/
 │   ├── session-start.sh
 │   └── writing-standards-check.sh

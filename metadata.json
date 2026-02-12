@@ -1,7 +1,7 @@
 {
   "name": "agentic-product-manager",
   "version": "1.0.0",
-  "description": "Complete PM toolkit with 23 skills, 3 agents, hooks, and workflows for Claude Code, Cursor, and OpenCode",
+  "description": "Complete PM toolkit with 24 skills, 4 agents, hooks, and workflows for Claude Code, Cursor, and OpenCode",
   "author": "Agentic Product Manager Contributors",
   "license": "MIT",
   "platforms": ["claude-code", "cursor", "opencode"],
@@ -28,12 +28,14 @@
     "skills/discovery-workflow",
     "skills/setup-strategy",
     "skills/pr-faq",
-    "skills/delivery-metrics"
+    "skills/delivery-metrics",
+    "skills/scope-problem"
   ],
   "agents": [
     "agents/pm-researcher.md",
     "agents/pm-writer.md",
-    "agents/pm-analyst.md"
+    "agents/pm-analyst.md",
+    "agents/pm-cpo.md"
   ],
   "shared": [
     "_shared/writing-standards.md",

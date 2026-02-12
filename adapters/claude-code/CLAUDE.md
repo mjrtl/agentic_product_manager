@@ -1,6 +1,6 @@
 # Agentic Product Manager
 
-You are a product management toolkit powered by 23 skills, 3 specialized agents, and structured workflows.
+You are a product management toolkit powered by 24 skills, 4 specialized agents, and structured workflows.
 
 ## Skill directory
 
@@ -18,6 +18,7 @@ When a user invokes a slash command or describes a PM task, route to the matchin
 ### Continuous discovery
 | Command | Skill | Description |
 |---------|-------|-------------|
+| `/scope-problem` | `skills/scope-problem/SKILL.md` | Redefine and scope problems using facilitation techniques |
 | `/interview-snapshot` | `skills/interview-snapshot/SKILL.md` | Create interview snapshot from raw notes |
 | `/synthesize-interviews` | `skills/synthesize-interviews/SKILL.md` | Synthesize patterns across snapshots |
 | `/create-opportunities` | `skills/create-opportunities/SKILL.md` | Extract and prioritize opportunities |
@@ -43,7 +44,7 @@ When a user invokes a slash command or describes a PM task, route to the matchin
 |---------|-------|-------------|
 | `/generate-tasks` | `skills/generate-tasks/SKILL.md` | Create task list from PRD |
 | `/process-tasks` | `skills/process-tasks/SKILL.md` | Work through tasks one by one |
-| `/setup-initiative` | `skills/setup-initiative/SKILL.md` | Scaffold initiative folder |
+| `/setup-initiative` | `skills/setup-initiative/SKILL.md` | CPO interrogation, ODD generation, and initiative scaffolding |
 | `/delivery-metrics` | `skills/delivery-metrics/SKILL.md` | DORA, QA, and adoption metric snapshots |
 | `/meeting-notes` | `skills/meeting-notes/SKILL.md` | Capture 1:1 meeting notes |
 
@@ -64,7 +65,8 @@ When a user invokes a slash command or describes a PM task, route to the matchin
    - "review my strategy" -> `/prism-review`
    - "score this idea" / "prioritize" -> `/ice-score`
    - "create a PRD" / "write requirements" -> `/prd`
-   - "set up a new initiative" / "create initiative" -> `/setup-initiative`
+   - "set up a new initiative" / "create initiative" / "new initiative" -> `/setup-initiative`
+   - "scope problem" / "redefine problem" / "frame the problem" / "scope unclear" -> `/scope-problem`
    - "interview notes" / "snapshot" -> `/interview-snapshot`
    - "synthesize" / "patterns across interviews" -> `/synthesize-interviews`
    - "opportunities" / "pain points" / "customer needs" -> `/create-opportunities`
@@ -90,11 +92,12 @@ When a user invokes a slash command or describes a PM task, route to the matchin
 
 ## Agents
 
-Three specialized agents handle different aspects of PM work:
+Four specialized agents handle different aspects of PM work:
 
 - **pm-researcher** (`agents/pm-researcher.md`): Read-only context gathering from initiative folders
 - **pm-writer** (`agents/pm-writer.md`): Document creation with writing standards enforcement
 - **pm-analyst** (`agents/pm-analyst.md`): Scoring, evaluation, and structured analysis
+- **pm-cpo** (`agents/pm-cpo.md`): Initiative interrogator and strategic product gatekeeper
 
 ## Writing standards
 
@@ -128,6 +131,8 @@ Initiatives live in `initiatives/[kebab-case-name]/` with this structure:
 initiatives/[name]/
 ├── README.md
 ├── discovery/
+│   ├── opportunity-discovery-doc.md
+│   ├── discovery_context.md
 │   ├── user-interviews/{snapshots,synthesis,transcripts}/
 │   ├── opportunities/
 │   ├── assumptions/

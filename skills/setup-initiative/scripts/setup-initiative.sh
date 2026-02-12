@@ -87,6 +87,11 @@ if [ -f "$TEMPLATE_DIR/discovery_context.md" ]; then
   copy_template "$TEMPLATE_DIR/discovery_context.md" "$TARGET_DIR/discovery/discovery_context.md"
 fi
 
+# Copy ODD template into discovery/
+if [ -f "$TEMPLATE_DIR/opportunity-discovery-doc.md" ]; then
+  copy_template "$TEMPLATE_DIR/opportunity-discovery-doc.md" "$TARGET_DIR/discovery/opportunity-discovery-doc.md"
+fi
+
 # Copy subfolder READMEs into phase subdirs
 for folder in user-interviews opportunities assumptions solutions; do
   if [ -f "$TEMPLATE_DIR/$folder/README.md" ]; then
@@ -120,6 +125,7 @@ echo "Folder structure:"
 echo "  $TARGET_DIR/"
 echo "  ├── README.md"
 echo "  ├── discovery/                    (1. Discovery)"
+echo "  │   ├── opportunity-discovery-doc.md   ODD"
 echo "  │   ├── discovery_context.md      Keyrock process links, JTBD, problem"
 echo "  │   ├── user-interviews/          (snapshots/, synthesis/, transcripts/)"
 echo "  │   ├── opportunities/"
@@ -135,17 +141,7 @@ echo "      ├── delivery-metrics/"
 echo "      ├── product-analytics/"
 echo "      └── launch/"
 echo ""
-echo "Next steps (Discovery):"
-echo "  1. Start user research: /interview-snapshot"
-echo "  2. Synthesize findings: /synthesize-interviews"
-echo "  3. Identify opportunities: /create-opportunities"
-echo "  4. Test assumptions: /test-assumptions"
-echo ""
-echo "Next steps (Definition):"
-echo "  5. Write PR-FAQ: /pr-faq"
-echo "  6. Create PRD: /prd"
-echo "  7. Generate tasks: /generate-tasks"
-echo ""
-echo "Next steps (Delivery):"
-echo "  8. Process tasks: /process-tasks"
-echo "  9. Track metrics: /delivery-metrics"
+echo "Next steps:"
+echo "  1. Complete the ODD: discovery/opportunity-discovery-doc.md"
+echo "  2. If scope unclear, run: /scope-problem"
+echo "  3. Start discovery: /discovery-workflow"
