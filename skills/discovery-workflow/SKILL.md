@@ -39,16 +39,29 @@ When invoked with an initiative name, this workflow:
 1. **Checks initiative state**: Looks for `initiatives/[name]/` folder
    - If it doesn't exist, runs `/setup-initiative` first
 2. **Scans each stage folder** to determine progress (paths relative to initiative folder):
-   - `discovery/user-interviews/snapshots/` - Any snapshot files?
-   - `discovery/user-interviews/synthesis/` - Any synthesis files?
-   - `discovery/opportunities/` - Any opportunity files?
-   - `discovery/solutions/` - Any solution files?
-   - `discovery/assumptions/` - Any assumption files?
-   - `definition/prd/` - Any PR-FAQ files? Any PRD files?
-   - `delivery/tasks/` - Any task files?
-   - `delivery/qa/` - Any QA files?
-   - `delivery/delivery-metrics/` - Any DORA snapshots?
-   - `delivery/launch/` - Any launch plans or retros?
+   - Numbered layout (preferred):
+     - `1-discovery/1.2-user-interviews/snapshots/` - Any snapshot files?
+     - `1-discovery/1.2-user-interviews/synthesis/` - Any synthesis files?
+     - `1-discovery/1.3-opportunities/` - Any opportunity files?
+     - `1-discovery/1.4-solutions/` - Any solution files?
+     - `1-discovery/1.5-assumptions-and-tests/` - Any assumption files?
+     - `2-definition/2.1-prd/` - Any PR-FAQ files? Any PRD files?
+     - `3-delivery/3.1-tasks/` - Any task files?
+     - `3-delivery/3.2-qa/` - Any QA files?
+     - `3-delivery/3.3-delivery-metrics/` - Any DORA snapshots?
+     - `3-delivery/3.5-launch/` - Any launch plans or retros?
+
+   - Legacy layout (supported):
+     - `discovery/user-interviews/snapshots/`
+     - `discovery/user-interviews/synthesis/`
+     - `discovery/opportunities/`
+     - `discovery/solutions/`
+     - `discovery/assumptions/`
+     - `definition/prd/`
+     - `delivery/tasks/`
+     - `delivery/qa/`
+     - `delivery/delivery-metrics/`
+     - `delivery/launch/`
 3. **Identifies the next stage** and tells you what to do next
 4. **Invokes the appropriate skill** for the current stage
 
@@ -62,12 +75,12 @@ When invoked with an initiative name, this workflow:
 | 4. Opportunities | >= 1 opportunities file | `/generate-solutions` |
 | 5. Solutions | >= 1 solutions file | `/test-assumptions` |
 | 6. Assumptions | >= 1 assumptions file with test results | `/pr-faq` |
-| 7. PR-FAQ | >= 1 `pr-faq-*.md` file in `definition/prd/` | `/prd` |
-| 8. PRD | >= 1 PRD file (non pr-faq) in `definition/prd/` | `/generate-tasks` |
-| 9. Tasks | Task list exists in `delivery/tasks/` | `/process-tasks` |
-| 10. QA | >= 1 file in `delivery/qa/` | `/delivery-metrics` |
-| 11. Delivery Metrics | >= 1 file in `delivery/delivery-metrics/` | Launch planning |
-| 12. Launch | >= 1 file in `delivery/launch/` | Complete |
+| 7. PR-FAQ | >= 1 `pr-faq-*.md` file in definition folder | `/prd` |
+| 8. PRD | >= 1 PRD file (non pr-faq) in definition folder | `/generate-tasks` |
+| 9. Tasks | Task list exists in delivery tasks folder | `/process-tasks` |
+| 10. QA | >= 1 file in delivery QA folder | `/delivery-metrics` |
+| 11. Delivery Metrics | >= 1 file in delivery metrics folder | Launch planning |
+| 12. Launch | >= 1 file in launch folder | Complete |
 
 ## Usage
 

@@ -25,7 +25,7 @@ Score an idea on Impact, Confidence, and Ease to propose execution priority.
 ## Output
 
 - **Format:** Markdown (`.md`)
-- **Location:** `initiatives/[initiative]/discovery/solutions/`
+- **Location:** `initiatives/[initiative]/1-discovery/1.4-solutions/` (legacy: `initiatives/[initiative]/discovery/solutions/`)
 - **Filename:** `ice-[YYYY-MM-DD]-[slugified-idea-title].md`
 
 ## Scoring quick reference

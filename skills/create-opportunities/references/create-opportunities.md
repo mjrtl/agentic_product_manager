@@ -13,15 +13,16 @@ Extract opportunities from interview snapshots and synthesis results based on cu
 
 ## Input
 
-- **Primary Source**: Interview snapshots from `discovery/user-interviews/snapshots/`
-- **Secondary Source**: Synthesis documents from `discovery/user-interviews/synthesis/`
+- **Primary Source**: Interview snapshots from `1-discovery/1.2-user-interviews/snapshots/` (legacy: `discovery/user-interviews/snapshots/`)
+- **Secondary Source**: Synthesis documents from `1-discovery/1.2-user-interviews/synthesis/` (legacy: `discovery/user-interviews/synthesis/`)
 - **Context Source**: Strategic materials from `company-level-context/`
 - **Minimum Requirements**: At least 3-5 interview snapshots or 1 synthesis document
 
 ## Output
 
 **Format:** Markdown (`.md`)
-**Location:** `discovery/opportunities/[topic]/`
+**Location (preferred):** `1-discovery/1.3-opportunities/[topic]/`  
+**Location (legacy):** `discovery/opportunities/[topic]/`
 **Filename:** `opportunities-[topic]-v[version].md`
 
 Version management: Check existing files, auto-increment version, never overwrite.
@@ -158,7 +159,7 @@ See `references/opportunity-roi.md` for the complete ROI framework including:
 - ROI calculation and payback period
 - Confidence rating per estimate
 
-Output: `discovery/opportunities/[topic]/roi-[topic]-v[N].md`
+Output: `1-discovery/1.3-opportunities/[topic]/roi-[topic]-v[N].md` (legacy: `discovery/opportunities/[topic]/roi-[topic]-v[N].md`)
 
 ## Guardrails
 

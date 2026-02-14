@@ -7,7 +7,8 @@ Systematically extract meaningful insights from qualitative interviews or user t
 ## Output
 
 **Format:** Markdown (`.md`)
-**Location:** `discovery/user-interviews/snapshots/`
+**Location (preferred):** `1-discovery/1.2-user-interviews/snapshots/`  
+**Location (legacy):** `discovery/user-interviews/snapshots/`
 **Filename:** `snapshot-[participant-name]-[date].md`
 
 ## Process

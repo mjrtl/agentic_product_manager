@@ -20,9 +20,9 @@ Create an Amazon-style Press Release and Frequently Asked Questions document tha
 
 ## Input
 
-- Validated opportunity from `discovery/opportunities/`
-- Tested assumptions from `discovery/assumptions/`
-- Solution concepts from `discovery/solutions/`
+- Validated opportunity from `1-discovery/1.3-opportunities/` (legacy: `discovery/opportunities/`)
+- Tested assumptions from `1-discovery/1.5-assumptions-and-tests/` (legacy: `discovery/assumptions/`)
+- Solution concepts from `1-discovery/1.4-solutions/` (legacy: `discovery/solutions/`)
 - Strategy context from `strategy/` (vision, OKRs)
 
 ## Process
@@ -37,8 +37,8 @@ Create an Amazon-style Press Release and Frequently Asked Questions document tha
 ## Output
 
 - **Format:** Markdown (`.md`)
-- **Location:** `definition/prd/pr-faq-[feature-name].md`
-- **Naming:** PR-FAQs live alongside PRDs in the `definition/prd/` folder with the `pr-faq-` prefix
+- **Location:** `2-definition/2.1-prd/pr-faq-[feature-name].md` (legacy: `definition/prd/pr-faq-[feature-name].md`)
+- **Naming:** PR-FAQs live alongside PRDs in the definition folder with the `pr-faq-` prefix
 
 ## Guardrails
 

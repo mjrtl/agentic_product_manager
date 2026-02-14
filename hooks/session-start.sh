@@ -61,18 +61,35 @@ for init_dir in "$INITIATIVES_DIR"/*/; do
   name=$(basename "$init_dir")
   display_name=$(echo "$name" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)}1')
 
-  # Count files in each stage folder (discovery / definition / delivery structure)
-  snapshots=$(find "$init_dir/discovery/user-interviews/snapshots" -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
-  synthesis=$(find "$init_dir/discovery/user-interviews/synthesis" -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
-  opportunities=$(find "$init_dir/discovery/opportunities" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
-  solutions=$(find "$init_dir/discovery/solutions" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
-  assumptions=$(find "$init_dir/discovery/assumptions" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
-  prfaqs=$(find "$init_dir/definition/prd" -name "pr-faq-*.md" 2>/dev/null | wc -l | tr -d ' ')
-  prds=$(find "$init_dir/definition/prd" -name "*.md" -not -name "README.md" -not -name "pr-faq-*.md" 2>/dev/null | wc -l | tr -d ' ')
-  tasks=$(find "$init_dir/delivery/tasks" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
-  qa=$(find "$init_dir/delivery/qa" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
-  dora=$(find "$init_dir/delivery/delivery-metrics" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
-  launch=$(find "$init_dir/delivery/launch" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+  # Count files in each stage folder.
+  # Support both layouts:
+  # - Numbered: 1-discovery/, 2-definition/, 3-delivery/
+  # - Legacy: discovery/, definition/, delivery/
+  if [ -d "$init_dir/1-discovery" ]; then
+    snapshots=$(find "$init_dir/1-discovery/1.2-user-interviews/snapshots" -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
+    synthesis=$(find "$init_dir/1-discovery/1.2-user-interviews/synthesis" -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
+    opportunities=$(find "$init_dir/1-discovery/1.3-opportunities" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+    solutions=$(find "$init_dir/1-discovery/1.4-solutions" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+    assumptions=$(find "$init_dir/1-discovery/1.5-assumptions-and-tests" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+    prfaqs=$(find "$init_dir/2-definition/2.1-prd" -name "pr-faq-*.md" 2>/dev/null | wc -l | tr -d ' ')
+    prds=$(find "$init_dir/2-definition/2.1-prd" -name "*.md" -not -name "README.md" -not -name "pr-faq-*.md" 2>/dev/null | wc -l | tr -d ' ')
+    tasks=$(find "$init_dir/3-delivery/3.1-tasks" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+    qa=$(find "$init_dir/3-delivery/3.2-qa" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+    dora=$(find "$init_dir/3-delivery/3.3-delivery-metrics" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+    launch=$(find "$init_dir/3-delivery/3.5-launch" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+  else
+    snapshots=$(find "$init_dir/discovery/user-interviews/snapshots" -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
+    synthesis=$(find "$init_dir/discovery/user-interviews/synthesis" -name "*.md" 2>/dev/null | wc -l | tr -d ' ')
+    opportunities=$(find "$init_dir/discovery/opportunities" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+    solutions=$(find "$init_dir/discovery/solutions" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+    assumptions=$(find "$init_dir/discovery/assumptions" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+    prfaqs=$(find "$init_dir/definition/prd" -name "pr-faq-*.md" 2>/dev/null | wc -l | tr -d ' ')
+    prds=$(find "$init_dir/definition/prd" -name "*.md" -not -name "README.md" -not -name "pr-faq-*.md" 2>/dev/null | wc -l | tr -d ' ')
+    tasks=$(find "$init_dir/delivery/tasks" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+    qa=$(find "$init_dir/delivery/qa" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+    dora=$(find "$init_dir/delivery/delivery-metrics" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+    launch=$(find "$init_dir/delivery/launch" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
+  fi
 
   # Determine current stage (reverse order: latest stage wins)
   if [ "$launch" -gt 0 ]; then

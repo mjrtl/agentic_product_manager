@@ -33,8 +33,8 @@ Use the continuous-discovery skill's "generate solutions" workflow. Outputs shou
 
 ## Workflow
 
-1. Start with a target opportunity in `discovery/opportunities/`.
-2. After identifying and testing assumptions in `discovery/assumptions/`, explore diverse solution directions here.
+1. Start with a target opportunity in `1-discovery/1.3-opportunities/` (legacy: `discovery/opportunities/`).
+2. After identifying and testing assumptions in `1-discovery/1.5-assumptions-and-tests/` (legacy: `discovery/assumptions/`), explore diverse solution directions here.
 3. Select top 3 and document rationale and considerations.
 
 ---

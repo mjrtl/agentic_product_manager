@@ -46,21 +46,21 @@ When reporting initiative status:
 
 ### Folder state
 **Discovery:**
-- discovery/user-interviews/snapshots/: [N files]
-- discovery/user-interviews/synthesis/: [N files]
-- discovery/opportunities/: [N files]
-- discovery/solutions/: [N files]
-- discovery/assumptions/: [N files]
+- 1-discovery/1.2-user-interviews/snapshots/: [N files]
+- 1-discovery/1.2-user-interviews/synthesis/: [N files]
+- 1-discovery/1.3-opportunities/: [N files]
+- 1-discovery/1.4-solutions/: [N files]
+- 1-discovery/1.5-assumptions-and-tests/: [N files]
 
 **Definition:**
-- definition/prd/ (pr-faq): [N files]
-- definition/prd/ (prd/1-pager): [N files]
+- 2-definition/2.1-prd/ (pr-faq): [N files]
+- 2-definition/2.1-prd/ (prd/1-pager): [N files]
 
 **Delivery:**
-- delivery/tasks/: [N files]
-- delivery/qa/: [N files]
-- delivery/delivery-metrics/: [N files]
-- delivery/launch/: [N files]
+- 3-delivery/3.1-tasks/: [N files]
+- 3-delivery/3.2-qa/: [N files]
+- 3-delivery/3.3-delivery-metrics/: [N files]
+- 3-delivery/3.5-launch/: [N files]
 
 ### Key findings
 - [Summary of what's been done]

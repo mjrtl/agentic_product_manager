@@ -10,7 +10,8 @@ Generate **Figma Make-ready prompts** based on design briefs and design systems.
 
 ### Storage Location
 
-- **Per Initiative**: `initiatives/[initiative-name]/definition/design/`
+- **Per Initiative (preferred)**: `initiatives/[initiative-name]/2-definition/2.2-design/`
+- **Legacy**: `initiatives/[initiative-name]/definition/design/`
 - **File Naming Convention**: `figma-make-prompt-[feature-name].json`
 
 ### JSON Schema

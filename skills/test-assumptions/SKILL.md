@@ -25,7 +25,7 @@ Extract assumptions, categorize them, prioritize "leap of faith" assumptions, an
 ## Output
 
 - **Format:** Markdown (`.md`)
-- **Location:** `discovery/assumptions/[topic]/`
+- **Location:** `1-discovery/1.5-assumptions-and-tests/[topic]/` (legacy: `discovery/assumptions/[topic]/`)
 - **Filename:** `assumptions-[opportunity-name]-v[version].md`
 
 ## Key concepts

@@ -20,7 +20,8 @@ Extract explicit assumptions from insights and opportunities, categorize and pri
 ## Output
 
 **Format:** Markdown (`.md`)
-**Location:** `discovery/assumptions/[topic]/`
+**Location (preferred):** `1-discovery/1.5-assumptions-and-tests/[topic]/`  
+**Location (legacy):** `discovery/assumptions/[topic]/`
 **Filename:** `assumptions-[opportunity-name]-v[version].md`
 
 Version management: Check existing files, auto-increment version, never overwrite.

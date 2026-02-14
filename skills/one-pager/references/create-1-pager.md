@@ -39,12 +39,13 @@ Bullet summary:
 ## Output
 
 * **Format:** Markdown (`.md`)
-* **Location:** `definition/prd/`
+* **Location (preferred):** `2-definition/2.1-prd/`  
+* **Location (legacy):** `definition/prd/`
 * **Filename:** `1-pager-[initiative-name].md`
 
 ## Final Instructions
 
 1. Do not generate the 1-Pager immediately; always supplement input through Clarifying Questions first.
 2. Write in **narrative + summary bullet** structure reflecting user responses.
-3. **Save 1-Pager:** Save the generated document as `1-pager-[feature-name].md` inside the `definition/prd/` directory.
+3. **Save 1-Pager:** Save the generated document as `1-pager-[feature-name].md` inside `2-definition/2.1-prd/` (legacy: `definition/prd/`).
 4. Verify that the completed document fulfills the purpose of **triggering discussion, revealing uncomfortable facts, and decision resolution**.

@@ -116,6 +116,11 @@ get_agent_meta() {
       AGENT_READONLY="false"
       return 0
       ;;
+    pm-cpo)
+      AGENT_DESCRIPTION="Initiative interrogator and strategic product gatekeeper; runs CPO questioning and ODD generation."
+      AGENT_READONLY="false"
+      return 0
+      ;;
     *)
       return 1
       ;;

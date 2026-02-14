@@ -19,13 +19,13 @@ A facilitation skill that helps users redefine and scope their problem when the 
 
 ## Input
 
-- An initiative with an existing ODD at `discovery/opportunity-discovery-doc.md`, or
+- An initiative with an existing ODD at `0-intake-and-scoping/0.1-odd/opportunity-discovery-doc.md` (legacy: `discovery/opportunity-discovery-doc.md`), or
 - A problem statement provided verbally by the user
 
 ## Output
 
 - A refined problem statement and cause map
-- Updates to the initiative's ODD (`discovery/opportunity-discovery-doc.md`), specifically:
+- Updates to the initiative's ODD (`0-intake-and-scoping/0.1-odd/opportunity-discovery-doc.md`; legacy: `discovery/opportunity-discovery-doc.md`), specifically:
   - Revised opportunity statement
   - Updated key assumptions
   - Scoping recommendation changed to "Scope is known"
@@ -114,7 +114,7 @@ The calling skill provides:
 
 Once the real issue is identified:
 
-1. Update `discovery/opportunity-discovery-doc.md` with the refined opportunity
+1. Update `0-intake-and-scoping/0.1-odd/opportunity-discovery-doc.md` (legacy: `discovery/opportunity-discovery-doc.md`) with the refined opportunity
    statement, revised assumptions, and mark "Scope is known."
 2. **Standalone mode:** resume the `/setup-initiative` flow from the scoping
    decision to finalise scaffolding and the discovery plan. If already scaffolded,

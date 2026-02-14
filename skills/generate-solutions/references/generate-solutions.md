@@ -14,7 +14,7 @@ Generate multiple potential solutions for identified opportunities using the Con
 ## Input
 
 ### Primary Input Sources (Choose One)
-- **Option A**: Prioritized opportunities from `discovery/opportunities/` directory
+- **Option A**: Prioritized opportunities from `1-discovery/1.3-opportunities/` directory (legacy: `discovery/opportunities/`)
 - **Option B**: Direct opportunity input from user
 - **Option C**: Mixed approach (file-based + direct input)
 
@@ -25,7 +25,8 @@ Generate multiple potential solutions for identified opportunities using the Con
 ## Output
 
 **Format:** Markdown (`.md`)
-**Location:** `discovery/solutions/[topic]/`
+**Location (preferred):** `1-discovery/1.4-solutions/[topic]/`  
+**Location (legacy):** `discovery/solutions/[topic]/`
 **Filename:** `solutions-[topic]-v[version].md`
 
 Version management: Check existing files, auto-increment version, never overwrite.

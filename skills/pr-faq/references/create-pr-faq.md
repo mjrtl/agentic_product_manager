@@ -21,7 +21,7 @@ Create an Amazon-style Press Release and FAQ document that serves as the root do
 ### 0) File management (mandatory)
 
 1. Determine feature or product name from context
-2. Check existing files with pattern `definition/prd/pr-faq-*.md`
+2. Check existing files with pattern `2-definition/2.1-prd/pr-faq-*.md` (legacy: `definition/prd/pr-faq-*.md`)
 3. Use filename: `pr-faq-[feature-name].md`
 4. Never overwrite existing PR-FAQ files
 

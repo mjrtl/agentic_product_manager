@@ -15,7 +15,8 @@ This framework guides you through analyzing multiple interview snapshots to iden
 ## Output
 
 **Format:** Markdown (`.md`)
-**Location:** `discovery/user-interviews/synthesis/`
+**Location (preferred):** `1-discovery/1.2-user-interviews/synthesis/`  
+**Location (legacy):** `discovery/user-interviews/synthesis/`
 **Filename:** `synthesis-[initiative-name]-v[version].md`
 
 **Semantic Naming Guidelines:**

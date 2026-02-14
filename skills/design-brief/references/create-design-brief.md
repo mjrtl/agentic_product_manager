@@ -9,7 +9,8 @@ Leverage the project's **design system** (components and color/typography/spacin
 
 ### Storage Location
 
-- **Per Initiative**: `initiatives/[initiative-name]/definition/design/`
+- **Per Initiative (preferred)**: `initiatives/[initiative-name]/2-definition/2.2-design/`
+- **Legacy**: `initiatives/[initiative-name]/definition/design/`
 - **File Naming Convention**: `design-brief-[feature-name].[json|md]`
 
 ### A) Machine-Readable JSON (Figma/variables & components friendly)

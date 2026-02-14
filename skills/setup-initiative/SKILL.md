@@ -20,7 +20,10 @@ The starting point for every new initiative. An agent acting as a Chief Product 
 
 ### Continuation detection
 
-On entry, check for an existing ODD at `discovery/opportunity-discovery-doc.md`.
+On entry, check for an existing ODD.
+
+- **Preferred (numbered layout):** `0-intake-and-scoping/0.1-odd/opportunity-discovery-doc.md`
+- **Legacy layout (supported):** `discovery/opportunity-discovery-doc.md`
 
 - **No ODD** → start from Phase 1, step 1.
 - **ODD exists** → read metadata:
@@ -97,7 +100,12 @@ After each phase, update the ODD metadata:
 ./scripts/setup-initiative.sh <initiative-name> "<Owner Name>" "<Goal description>"
 ```
 
-11. **Write the finalised ODD** to `initiatives/[initiative-name]/discovery/opportunity-discovery-doc.md`.
+11. **Write the finalised ODD** to `initiatives/[initiative-name]/0-intake-and-scoping/0.1-odd/opportunity-discovery-doc.md` (legacy: `initiatives/[initiative-name]/discovery/opportunity-discovery-doc.md`).
+12. **Write a stage map** to `initiatives/[initiative-name]/00-stage-map.md` and seed exec summary placeholders:
+    - `0-intake-and-scoping/0.3-exec-summary.md`
+    - `1-discovery/00-exec-summary.md`
+    - `2-definition/00-exec-summary.md`
+    - `3-delivery/00-exec-summary.md`
 
 ### Phase 4 — Stage gate: discovery plan
 
@@ -112,7 +120,9 @@ After each phase, update the ODD metadata:
       3. `/create-opportunities` — extract and prioritise opportunities (OST)
       4. `/generate-solutions` — explore solution space
       5. `/test-assumptions` — validate riskiest assumptions
-13. **Update `discovery/discovery_context.md`** with this discovery plan.
+13. **Update the discovery context** with this discovery plan:
+    - Preferred: `1-discovery/1.1-discovery-context-and-plan/discovery_context.md`
+    - Legacy: `discovery/discovery_context.md`
 14. User proceeds into discovery via `/discovery-workflow`.
 
 ## Folder structure created
@@ -120,22 +130,30 @@ After each phase, update the ODD metadata:
 ```
 initiatives/[initiative-name]/
 ├── README.md
-├── discovery/                    (1. Discovery)
-│   ├── opportunity-discovery-doc.md   ODD — the output of this skill
-│   ├── discovery_context.md      Keyrock process links, JTBD, problem
-│   ├── user-interviews/          (snapshots/, synthesis/, transcripts/)
-│   ├── opportunities/
-│   ├── assumptions/
-│   └── solutions/
-├── definition/                   (2. Definition)
-│   ├── prd/                     (PRDs, 1-pagers, and PR-FAQs)
-│   └── design/
-└── delivery/                    (3. Delivery)
-    ├── tasks/
-    ├── qa/
-    ├── delivery-metrics/
-    ├── product-analytics/
-    └── launch/
+├── 00-stage-map.md                     Numbered navigation (what happens next)
+├── 0-intake-and-scoping/               (0. Intake and scoping)
+│   ├── 0.1-odd/opportunity-discovery-doc.md
+│   ├── 0.2-scoping-artifacts/
+│   └── 0.3-exec-summary.md
+├── 1-discovery/                        (1. Discovery)
+│   ├── 00-exec-summary.md
+│   ├── 1.1-discovery-context-and-plan/discovery_context.md
+│   ├── 1.2-user-interviews/            (snapshots/, synthesis/, transcripts/)
+│   ├── 1.3-opportunities/
+│   ├── 1.4-solutions/
+│   ├── 1.5-assumptions-and-tests/
+│   └── 1.6-evidence/
+├── 2-definition/                       (2. Definition)
+│   ├── 00-exec-summary.md
+│   ├── 2.1-prd/                         (PRDs, 1-pagers, PR-FAQs)
+│   └── 2.2-design/
+└── 3-delivery/                         (3. Delivery)
+    ├── 00-exec-summary.md
+    ├── 3.1-tasks/
+    ├── 3.2-qa/
+    ├── 3.3-delivery-metrics/
+    ├── 3.4-product-analytics/
+    └── 3.5-launch/
 ```
 
 ## Integration points
@@ -144,19 +162,19 @@ After creation, the user can use these skills in the initiative:
 
 | Skill | Location | Phase |
 |-------|----------|-------|
-| `/scope-problem` | Updates `discovery/opportunity-discovery-doc.md` | 0. Scoping |
-| `/interview-snapshot` | `discovery/user-interviews/snapshots/` | 1. Discovery |
-| `/synthesize-interviews` | `discovery/user-interviews/synthesis/` | 1. Discovery |
-| `/create-opportunities` | `discovery/opportunities/` | 1. Discovery |
-| `/generate-solutions` | `discovery/solutions/` | 1. Discovery |
-| `/test-assumptions` | `discovery/assumptions/` | 1. Discovery |
-| `/pr-faq` | `definition/prd/` | 2. Definition |
-| `/prd` | `definition/prd/` | 2. Definition |
-| `/design-brief` | `definition/design/` | 2. Definition |
-| `/figma-prompt` | `definition/design/` | 2. Definition |
-| `/generate-tasks` | `delivery/tasks/` | 3. Delivery |
-| `/process-tasks` | `delivery/tasks/` | 3. Delivery |
-| `/delivery-metrics` | `delivery/qa/`, `delivery/delivery-metrics/`, `delivery/product-analytics/` | 3. Delivery |
+| `/scope-problem` | Updates `0-intake-and-scoping/0.1-odd/opportunity-discovery-doc.md` | 0. Scoping |
+| `/interview-snapshot` | `1-discovery/1.2-user-interviews/snapshots/` | 1. Discovery |
+| `/synthesize-interviews` | `1-discovery/1.2-user-interviews/synthesis/` | 1. Discovery |
+| `/create-opportunities` | `1-discovery/1.3-opportunities/` | 1. Discovery |
+| `/generate-solutions` | `1-discovery/1.4-solutions/` | 1. Discovery |
+| `/test-assumptions` | `1-discovery/1.5-assumptions-and-tests/` | 1. Discovery |
+| `/pr-faq` | `2-definition/2.1-prd/` | 2. Definition |
+| `/prd` | `2-definition/2.1-prd/` | 2. Definition |
+| `/design-brief` | `2-definition/2.2-design/` | 2. Definition |
+| `/figma-prompt` | `2-definition/2.2-design/` | 2. Definition |
+| `/generate-tasks` | `3-delivery/3.1-tasks/` | 3. Delivery |
+| `/process-tasks` | `3-delivery/3.1-tasks/` | 3. Delivery |
+| `/delivery-metrics` | `3-delivery/3.2-qa/`, `3-delivery/3.3-delivery-metrics/`, `3-delivery/3.4-product-analytics/` | 3. Delivery |
 
 For the CPO persona, see `agents/pm-cpo.md`. For the questioning flow and ODD generation process, see `references/cpo-interrogation.md`.
 

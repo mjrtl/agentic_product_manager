@@ -130,25 +130,35 @@ Initiatives live in `initiatives/[kebab-case-name]/` with this structure:
 ```
 initiatives/[name]/
 ├── README.md
-├── discovery/
-│   ├── opportunity-discovery-doc.md
-│   ├── discovery_context.md
-│   ├── user-interviews/{snapshots,synthesis,transcripts}/
-│   ├── opportunities/
-│   ├── assumptions/
-│   └── solutions/
-├── definition/
-│   ├── prd/                (PRDs, 1-pagers, and PR-FAQs)
-│   └── design/
-└── delivery/
-    ├── tasks/
-    ├── qa/
-    ├── delivery-metrics/
-    ├── product-analytics/
-    └── launch/
+├── 00-stage-map.md
+├── 0-intake-and-scoping/
+│   ├── 0.1-odd/opportunity-discovery-doc.md
+│   ├── 0.2-scoping-artifacts/
+│   └── 0.3-exec-summary.md
+├── 1-discovery/
+│   ├── 00-exec-summary.md
+│   ├── 1.1-discovery-context-and-plan/discovery_context.md
+│   ├── 1.2-user-interviews/{snapshots,synthesis,transcripts}/
+│   ├── 1.3-opportunities/
+│   ├── 1.4-solutions/
+│   ├── 1.5-assumptions-and-tests/
+│   └── 1.6-evidence/
+├── 2-definition/
+│   ├── 00-exec-summary.md
+│   ├── 2.1-prd/                (PRDs, 1-pagers, and PR-FAQs)
+│   └── 2.2-design/
+└── 3-delivery/
+    ├── 00-exec-summary.md
+    ├── 3.1-tasks/
+    ├── 3.2-qa/
+    ├── 3.3-delivery-metrics/
+    ├── 3.4-product-analytics/
+    └── 3.5-launch/
 ```
 
-When a skill references file locations (e.g., "save to `discovery/user-interviews/snapshots/`"), these paths are relative to the active initiative folder.
+When a skill references file locations (e.g., "save to `1-discovery/1.2-user-interviews/snapshots/`"), these paths are relative to the active initiative folder.
+
+Legacy initiatives may still use `discovery/`, `definition/`, and `delivery/`. Skills and hooks should support both layouts.
 
 ## File naming conventions
 
