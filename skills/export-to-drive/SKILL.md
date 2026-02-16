@@ -3,7 +3,7 @@ name: Export to Drive
 description: >
   Export initiative documents to Google Drive as native Google Docs, Sheets, and Slides.
   Mirrors initiative folder structure, classifies files by format, and outputs shareable links.
-argument-hint: "<initiative-name> [--phase 0|1|2|3] [--file <filename>]"
+argument-hint: "<initiative-name> [--phase 0|1|2|3] [--file <filename>] [--folder <drive-folder-id>]"
 ---
 
 # Export to Drive
@@ -22,6 +22,7 @@ Push initiative documents to Google Drive so stakeholders can view them without 
 - **Initiative name** (required): the kebab-case folder name under `initiatives/`
 - **--phase** (optional): restrict export to a single phase (0 = intake, 1 = discovery, 2 = definition, 3 = delivery)
 - **--file** (optional): export a single file by relative path within the initiative
+- **--folder** (optional): Google Drive folder ID to use as the parent for this initiative's exports. Overrides the project-level default. Get the ID from the folder's URL: `https://drive.google.com/drive/folders/<THIS-IS-THE-ID>`
 
 ## Output
 
@@ -33,14 +34,19 @@ Push initiative documents to Google Drive so stakeholders can view them without 
 
 1. **Validate initiative**: Confirm the initiative folder exists. Determine scope: full initiative, single phase (`--phase`), or single file (`--file`)
 2. **Load registry**: Read `.drive-export-registry.json` from the initiative folder if it exists, otherwise initialize a new one
-3. **Create Drive folders**: Create a root folder for the initiative on Google Drive (if not already in registry), then create sub-folders mirroring the phase/section structure using the MCP `createFolder` tool
-4. **Classify files**: For each file in scope, apply the format classification rules from `references/export-to-drive-guide.md` to determine whether to create a Google Doc, Sheet, Slides, or skip
-5. **Export files**: For each classified file:
+3. **Resolve target folder**: Determine where to create the initiative folder on Google Drive, using this priority order:
+   - `--folder` flag (if provided)
+   - `driveParentFolderId` from an existing registry (from a previous export)
+   - `defaultDriveFolder` from `.export-config.json` in the project root (project-level default)
+   - My Drive root (fallback)
+4. **Create Drive folders**: Create a root folder for the initiative inside the resolved target folder (if not already in registry), then create sub-folders mirroring the phase/section structure using the MCP `createFolder` tool
+5. **Classify files**: For each file in scope, apply the format classification rules from `references/export-to-drive-guide.md` to determine whether to create a Google Doc, Sheet, Slides, or skip
+6. **Export files**: For each classified file:
    - If the file already exists in the registry, update the existing Google file (same ID, same URL)
    - If it's new, create a new Google Doc/Sheet/Slides via the appropriate MCP tool
    - Convert markdown content to the target format (tables become Sheet rows, sections become Slides)
-6. **Construct links**: Build shareable URLs from Drive file IDs. Instruct the user to share the root folder with "Anyone with the link → Viewer" if this is the first export
-7. **Update registry and summarize**: Write the updated registry file. Display a summary table with columns: File, Format, Link, Status (created/updated)
+7. **Construct links**: Build shareable URLs from Drive file IDs. Instruct the user to share the root folder with "Anyone with the link → Viewer" if this is the first export
+8. **Update registry and summarize**: Write the updated registry file. Display a summary table with columns: File, Format, Link, Status (created/updated)
 
 ## Prerequisites
 

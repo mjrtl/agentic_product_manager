@@ -94,6 +94,48 @@ Executive-facing summaries. Each H2 section becomes a separate slide.
 
 ---
 
+## Target folder configuration
+
+Control where initiative folders are created on Google Drive. Three levels, checked in priority order:
+
+### 1. Per-export override (`--folder` flag)
+
+Pass a Drive folder ID directly:
+
+```
+/export-to-drive my-initiative --folder 1a2B3c4D5e6F7g8H9i0J
+```
+
+Get the folder ID from its URL: `https://drive.google.com/drive/folders/1a2B3c4D5e6F7g8H9i0J`
+
+### 2. Project-level default (`.export-config.json`)
+
+Create `.export-config.json` in the project root to set a default parent folder for all initiatives:
+
+```json
+{
+  "defaultDriveFolder": "1a2B3c4D5e6F7g8H9i0J"
+}
+```
+
+This is useful when you want all PM exports to land in a shared "Product Management" or "PM Exports" folder on Drive. This file is safe to commit (it contains only a folder ID, not credentials).
+
+### 3. Registry memory
+
+If an initiative has been exported before, the registry stores the `driveParentFolderId` that was used. Subsequent exports to the same initiative reuse that location automatically, even without `--folder` or `.export-config.json`.
+
+### 4. Fallback
+
+If none of the above are set, the initiative folder is created in the user's My Drive root.
+
+### Priority order
+
+```
+--folder flag  >  existing registry  >  .export-config.json  >  My Drive root
+```
+
+---
+
 ## Export registry schema
 
 Each initiative maintains a `.drive-export-registry.json` file (gitignored) that tracks what has been exported and where.
@@ -101,6 +143,7 @@ Each initiative maintains a `.drive-export-registry.json` file (gitignored) that
 ```json
 {
   "initiative": "initiative-name",
+  "driveParentFolderId": "parent-folder-id-or-null",
   "driveRootFolderId": "google-drive-folder-id",
   "driveRootFolderUrl": "https://drive.google.com/drive/folders/...",
   "folders": {
@@ -125,6 +168,7 @@ Each initiative maintains a `.drive-export-registry.json` file (gitignored) that
 | Field | Type | Description |
 |-------|------|-------------|
 | `initiative` | string | Initiative folder name (kebab-case) |
+| `driveParentFolderId` | string or null | Parent folder ID the initiative was created inside (null = My Drive root) |
 | `driveRootFolderId` | string | Google Drive folder ID for the initiative root |
 | `driveRootFolderUrl` | string | Shareable URL for the root folder |
 | `folders` | object | Map of relative folder paths to Drive folder IDs |
