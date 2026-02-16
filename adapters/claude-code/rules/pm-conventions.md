@@ -89,3 +89,12 @@ All versioned files in initiative directories:
 
 All Markdown files in initiative directories must follow `_shared/writing-standards.md`.
 Run the banned words/phrases check before finalizing any document.
+
+## Credential management
+
+All secrets and credentials (API keys, OAuth client IDs/secrets, tokens) must be managed through 1Password:
+- Use `op://` secret references in configuration files (`.mcp.json`, `.env`, etc.)
+- Use `op run` to inject credentials at runtime — never store credentials as local files
+- Never hardcode secrets in source files, scripts, or environment configs
+- `.mcp.json` files must use `op` as the command wrapper for any MCP server requiring authentication
+- Configuration files containing only `op://` references (not actual secrets) are safe to commit

@@ -191,7 +191,7 @@ install_claude_code() {
   echo ""
   echo "Claude Code installation complete!"
   echo ""
-  echo "Available commands (23 skills):"
+  echo "Available commands (25 skills):"
   echo "  /setup-strategy         Scaffold a strategy workspace"
   echo "  /prism-review           Run a PRISM strategy review"
   echo "  /vision-review          Score a product vision"
@@ -213,6 +213,9 @@ install_claude_code() {
   echo "  /process-tasks          Work through tasks one by one"
   echo "  /delivery-metrics       DORA, QA, and adoption metric snapshots"
   echo "  /meeting-notes          Capture 1:1 meeting notes"
+  echo "  /scope-problem          Redefine and scope problems"
+  echo "  /check-dor              Verify Definition of Ready"
+  echo "  /export-to-drive        Export initiative docs to Google Drive"
   echo "  /discovery-workflow     Full pipeline orchestrator"
 }
 

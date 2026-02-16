@@ -32,3 +32,6 @@ pm-agent-skills/
 .trae/
 .windsurf/
 .zencoder/
+
+# Export to Drive registry (contains Google Drive file IDs, per-initiative)
+.drive-export-registry.json

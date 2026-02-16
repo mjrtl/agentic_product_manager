@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "google-drive": {
+      "command": "op",
+      "args": [
+        "run", "--no-masking", "--",
+        "npx", "@anthropic/gdrive-mcp"
+      ],
+      "env": {
+        "GOOGLE_CLIENT_ID": "op://Private/Google Drive MCP/client_id",
+        "GOOGLE_CLIENT_SECRET": "op://Private/Google Drive MCP/client_secret",
+        "GOOGLE_REDIRECT_URI": "http://localhost:3000/oauth2callback"
+      }
+    }
+  }
+}

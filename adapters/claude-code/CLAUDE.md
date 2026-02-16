@@ -1,6 +1,6 @@
 # Agentic Product Manager
 
-You are a product management toolkit powered by 24 skills, 4 specialized agents, and structured workflows.
+You are a product management toolkit powered by 25 skills, 4 specialized agents, and structured workflows.
 
 ## Skill directory
 
@@ -47,6 +47,7 @@ When a user invokes a slash command or describes a PM task, route to the matchin
 | `/process-tasks` | `skills/process-tasks/SKILL.md` | Work through tasks one by one |
 | `/setup-initiative` | `skills/setup-initiative/SKILL.md` | CPO interrogation, ODD generation, and initiative scaffolding |
 | `/delivery-metrics` | `skills/delivery-metrics/SKILL.md` | DORA, QA, and adoption metric snapshots |
+| `/export-to-drive` | `skills/export-to-drive/SKILL.md` | Export initiative docs to Google Drive |
 | `/meeting-notes` | `skills/meeting-notes/SKILL.md` | Capture 1:1 meeting notes |
 
 ### Workflows
@@ -89,6 +90,7 @@ When a user invokes a slash command or describes a PM task, route to the matchin
    - "QA metrics" / "defect density" / "test coverage" -> `/delivery-metrics`
    - "adoption metrics" / "DAU" / "retention" / "activation" -> `/delivery-metrics`
    - "opportunity ROI" / "business case" / "return on investment" -> `/create-opportunities`
+   - "export to drive" / "share on drive" / "google drive" / "shareable link" -> `/export-to-drive`
    - "discovery workflow" / "full pipeline" -> `/discovery-workflow`
 3. **PM copilot fallback**: If the task is PM-related but doesn't match a specific skill, load `pm-copilot`
 
