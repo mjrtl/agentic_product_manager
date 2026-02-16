@@ -146,7 +146,9 @@ initiatives/[initiative-name]/
 ├── 2-definition/                       (2. Definition)
 │   ├── 00-exec-summary.md
 │   ├── 2.1-prd/                         (PRDs, 1-pagers, PR-FAQs)
-│   └── 2.2-design/
+│   ├── 2.2-design/
+│   ├── 2.3-user-story-map/              (required for DoR; summary or link to Notion/Miro)
+│   └── 2.4-metrics/                     (optional; metric definitions, infra, baseline)
 └── 3-delivery/                         (3. Delivery)
     ├── 00-exec-summary.md
     ├── 3.1-tasks/
@@ -172,6 +174,8 @@ After creation, the user can use these skills in the initiative:
 | `/prd` | `2-definition/2.1-prd/` | 2. Definition |
 | `/design-brief` | `2-definition/2.2-design/` | 2. Definition |
 | `/figma-prompt` | `2-definition/2.2-design/` | 2. Definition |
+| `/check-dor` | Reads ODD, 2.3, exec summary; verifies DoR before delivery | 2. Definition |
+| *(metrics)* | `2-definition/2.4-metrics/` (optional; definitions, infra, baseline) | 2. Definition |
 | `/generate-tasks` | `3-delivery/3.1-tasks/` | 3. Delivery |
 | `/process-tasks` | `3-delivery/3.1-tasks/` | 3. Delivery |
 | `/delivery-metrics` | `3-delivery/3.2-qa/`, `3-delivery/3.3-delivery-metrics/`, `3-delivery/3.4-product-analytics/` | 3. Delivery |

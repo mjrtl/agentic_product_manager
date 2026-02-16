@@ -24,7 +24,8 @@ Discovery:
 Definition:
   7. Create PR-FAQ
   8. Create PRD
-  9. Generate Tasks
+  8.5 User Story Map (2.3) + Definition of Ready
+  9. Generate Tasks (only after DoR pass)
 
 Delivery:
   10. Process Tasks & QA
@@ -46,6 +47,7 @@ When invoked with an initiative name, this workflow:
      - `1-discovery/1.4-solutions/` - Any solution files?
      - `1-discovery/1.5-assumptions-and-tests/` - Any assumption files?
      - `2-definition/2.1-prd/` - Any PR-FAQ files? Any PRD files?
+     - `2-definition/2.3-user-story-map/` - Any USM/epic content (or link in README)?
      - `3-delivery/3.1-tasks/` - Any task files?
      - `3-delivery/3.2-qa/` - Any QA files?
      - `3-delivery/3.3-delivery-metrics/` - Any DORA snapshots?
@@ -63,7 +65,8 @@ When invoked with an initiative name, this workflow:
      - `delivery/delivery-metrics/`
      - `delivery/launch/`
 3. **Identifies the next stage** and tells you what to do next
-4. **Invokes the appropriate skill** for the current stage
+4. **Before "Generate tasks"**: Run `/check-dor [name]`. If it fails, report missing DoR criteria and do not run `/generate-tasks` until the user has addressed them and `/check-dor` passes. If it passes, invoke `/generate-tasks`.
+5. **Invokes the appropriate skill** for the current stage (except Generate tasks, which is gated by DoR as above)
 
 ## Stage detection logic
 
@@ -76,7 +79,8 @@ When invoked with an initiative name, this workflow:
 | 5. Solutions | >= 1 solutions file | `/test-assumptions` |
 | 6. Assumptions | >= 1 assumptions file with test results | `/pr-faq` |
 | 7. PR-FAQ | >= 1 `pr-faq-*.md` file in definition folder | `/prd` |
-| 8. PRD | >= 1 PRD file (non pr-faq) in definition folder | `/generate-tasks` |
+| 8. PRD | >= 1 PRD file (non pr-faq) in definition folder | `/check-dor` then `/generate-tasks` |
+| 8.5 DoR | Definition of Ready met (run `/check-dor [name]`; if fail, complete missing items) | Do not run `/generate-tasks` until pass |
 | 9. Tasks | Task list exists in delivery tasks folder | `/process-tasks` |
 | 10. QA | >= 1 file in delivery QA folder | `/delivery-metrics` |
 | 11. Delivery Metrics | >= 1 file in delivery metrics folder | Launch planning |
@@ -116,6 +120,7 @@ This workflow is entirely file-system based. No database or state file needed. Y
 | Discovery | Assumptions | Not Started | - |
 | Definition | PR-FAQ | Not Started | - |
 | Definition | PRD | Not Started | - |
+| Definition | User Story Map (2.3) + DoR | Not Started | Run `/check-dor` |
 | Definition | Tasks | Not Started | - |
 | Delivery | QA | Not Started | - |
 | Delivery | Metrics | Not Started | - |

@@ -62,6 +62,8 @@
 - **[2-definition/00-exec-summary.md](./2-definition/00-exec-summary.md)** - Executive summary for definition stage (decision + scope)
 - **[2-definition/2.1-prd/](./2-definition/2.1-prd/)** - PRDs, 1-pagers, and PR-FAQs
 - **[2-definition/2.2-design/](./2-definition/2.2-design/)** - Design briefs and Figma Make prompts
+- **[2-definition/2.3-user-story-map/](./2-definition/2.3-user-story-map/)** - User story map & epics (required for DoR; summary or link to Notion/Miro)
+- **[2-definition/2.4-metrics/](./2-definition/2.4-metrics/)** - Optional metric definitions and baseline for success criteria
 
 ### 3. Delivery
 - **[3-delivery/00-exec-summary.md](./3-delivery/00-exec-summary.md)** - Executive summary for delivery stage (what shipped + impact)

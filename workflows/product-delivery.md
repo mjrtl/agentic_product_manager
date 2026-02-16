@@ -20,7 +20,7 @@ Tasks → QA → Delivery metrics (DORA) → Launch → Adoption measurement
 - `3-delivery/3.1-tasks/` (completed tasks, changes, notes)
 - `3-delivery/3.2-qa/` (test plans/results + QA KPI snapshots)
 
-**Entry criteria:** Approved task list  
+**Entry criteria:** Definition of Ready met (see [product-definition.md](product-definition.md) and [definition_of_ready.md](references/keyrock_product_process/definition_of_ready.md)); approved task list from `/generate-tasks`.  
 **Exit criteria:** Tasks completed with working software; QA results captured
 
 **Best-practice guardrails (keep it pragmatic):**

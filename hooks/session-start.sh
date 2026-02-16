@@ -73,6 +73,7 @@ for init_dir in "$INITIATIVES_DIR"/*/; do
     assumptions=$(find "$init_dir/1-discovery/1.5-assumptions-and-tests" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
     prfaqs=$(find "$init_dir/2-definition/2.1-prd" -name "pr-faq-*.md" 2>/dev/null | wc -l | tr -d ' ')
     prds=$(find "$init_dir/2-definition/2.1-prd" -name "*.md" -not -name "README.md" -not -name "pr-faq-*.md" 2>/dev/null | wc -l | tr -d ' ')
+    usm=$(find "$init_dir/2-definition/2.3-user-story-map" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
     tasks=$(find "$init_dir/3-delivery/3.1-tasks" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
     qa=$(find "$init_dir/3-delivery/3.2-qa" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
     dora=$(find "$init_dir/3-delivery/3.3-delivery-metrics" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
@@ -85,6 +86,7 @@ for init_dir in "$INITIATIVES_DIR"/*/; do
     assumptions=$(find "$init_dir/discovery/assumptions" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
     prfaqs=$(find "$init_dir/definition/prd" -name "pr-faq-*.md" 2>/dev/null | wc -l | tr -d ' ')
     prds=$(find "$init_dir/definition/prd" -name "*.md" -not -name "README.md" -not -name "pr-faq-*.md" 2>/dev/null | wc -l | tr -d ' ')
+    usm=0
     tasks=$(find "$init_dir/delivery/tasks" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
     qa=$(find "$init_dir/delivery/qa" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
     dora=$(find "$init_dir/delivery/delivery-metrics" -name "*.md" -not -name "README.md" 2>/dev/null | wc -l | tr -d ' ')
@@ -119,6 +121,14 @@ for init_dir in "$INITIATIVES_DIR"/*/; do
   fi
 
   echo "- **$display_name** [$stage]"
+  # Remind to complete 2.3 and DoR before generating tasks when in Definition phase
+  if [ "${tasks:-0}" -eq 0 ] && { [ "${prfaqs:-0}" -gt 0 ] || [ "${prds:-0}" -gt 0 ]; }; then
+    if [ "${usm:-0}" -eq 0 ]; then
+      echo "  → Complete 2.3 User Story Map and run \`/check-dor $name\` before \`/generate-tasks\`."
+    else
+      echo "  → Run \`/check-dor $name\` before \`/generate-tasks\`."
+    fi
+  fi
 done
 
 echo ""

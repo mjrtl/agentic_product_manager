@@ -60,7 +60,7 @@ echo ""
 # but default scaffold is numbered.
 mkdir -p "$TARGET_DIR"/0-intake-and-scoping/{0.1-odd,0.2-scoping-artifacts}
 mkdir -p "$TARGET_DIR"/1-discovery/{1.1-discovery-context-and-plan,1.2-user-interviews/{snapshots,synthesis,transcripts},1.3-opportunities,1.4-solutions,1.5-assumptions-and-tests,1.6-evidence}
-mkdir -p "$TARGET_DIR"/2-definition/{2.1-prd,2.2-design}
+mkdir -p "$TARGET_DIR"/2-definition/{2.1-prd,2.2-design,2.3-user-story-map,2.4-metrics}
 mkdir -p "$TARGET_DIR"/3-delivery/{3.1-tasks,3.2-qa,3.3-delivery-metrics,3.4-product-analytics,3.5-launch}
 
 # Create .gitkeep files in empty directories
@@ -136,6 +136,12 @@ fi
 if [ -f "$TEMPLATE_DIR/design/README.md" ]; then
   copy_template "$TEMPLATE_DIR/design/README.md" "$TARGET_DIR/2-definition/2.2-design/README.md"
 fi
+if [ -f "$TEMPLATE_DIR/user-story-map/README.md" ]; then
+  copy_template "$TEMPLATE_DIR/user-story-map/README.md" "$TARGET_DIR/2-definition/2.3-user-story-map/README.md"
+fi
+if [ -f "$TEMPLATE_DIR/metrics/README.md" ]; then
+  copy_template "$TEMPLATE_DIR/metrics/README.md" "$TARGET_DIR/2-definition/2.4-metrics/README.md"
+fi
 if [ -f "$TEMPLATE_DIR/tasks/README.md" ]; then
   copy_template "$TEMPLATE_DIR/tasks/README.md" "$TARGET_DIR/3-delivery/3.1-tasks/README.md"
 fi
@@ -183,7 +189,9 @@ echo "  │   └── 1.6-evidence/"
 echo "  ├── 2-definition/                 (2. Definition)"
 echo "  │   ├── 00-exec-summary.md"
 echo "  │   ├── 2.1-prd/"
-echo "  │   └── 2.2-design/"
+echo "  │   ├── 2.2-design/"
+echo "  │   ├── 2.3-user-story-map/       (required for DoR; summary or link to Notion/Miro)"
+echo "  │   └── 2.4-metrics/              (optional; for baseline + success criteria)"
 echo "  └── 3-delivery/                  (3. Delivery)"
 echo "      ├── 00-exec-summary.md"
 echo "      ├── 3.1-tasks/"

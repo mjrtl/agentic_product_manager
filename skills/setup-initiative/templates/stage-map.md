@@ -44,8 +44,10 @@ Important: the preferred scaffold is the numbered folder layout (`0-intake-and-s
 ## 2. Definition (decision and spec)
 
 - **2.0 Exec summary (definition)**: [`2-definition/00-exec-summary.md`](./2-definition/00-exec-summary.md)
-- **2.1 PR-FAQ / PRD / 1-pager**: [`2-definition/2.1-prd/`](./2-definition/2.1-prd/)
+- **2.1 ODD evolution / PR-FAQ / PRD / 1-pager**: [`2-definition/2.1-prd/`](./2-definition/2.1-prd/) — ODD is the primary definition artefact; PR-FAQ/PRD optional.
 - **2.2 Design brief**: [`2-definition/2.2-design/`](./2-definition/2.2-design/)
+- **2.3 User story map & Epics**: [`2-definition/2.3-user-story-map/`](./2-definition/2.3-user-story-map/) — required for Definition of Ready; summary or link to Notion/Miro.
+- **2.4 Metrics (optional)**: [`2-definition/2.4-metrics/`](./2-definition/2.4-metrics/) — metric definitions, infra plan, and baseline capture. Use when success criteria need "from → to" numbers or custom ops/product metrics.
 
 ---
 

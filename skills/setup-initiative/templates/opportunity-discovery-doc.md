@@ -37,6 +37,15 @@
 - To [outcome], a user needs [state change / effect]
 - To [outcome], a user needs [state change / effect]
 
+## User stories (definition) — optional for DoR
+
+[At least 2–3 behaviour-led user stories with acceptance criteria satisfy Definition of Ready. You can put them here or in `2-definition/2.3-user-story-map/`.]
+
+| Story | Acceptance criteria (Given/When/Then) |
+|-------|--------------------------------------|
+| As a [role], I want [action], So that [benefit]. | Given [precondition], When [action], Then [result]. |
+| ... | ... |
+
 ## Key assumptions
 
 | Assumption | Evidence strength | Importance |

@@ -201,6 +201,7 @@ See `workflows/strategy-review-cycle.md` for the full review cadence.
 
 | Command | Description |
 |---------|-------------|
+| `/check-dor` | Verify Definition of Ready before delivery (run before `/generate-tasks`) |
 | `/generate-tasks` | Create task list from PRD or requirements |
 | `/process-tasks` | Work through tasks one by one with commit protocol |
 | `/setup-initiative` | CPO interrogation, ODD generation, and initiative scaffolding |
@@ -282,6 +283,7 @@ agentic-product-manager/
 │   ├── one-pager/
 │   ├── design-brief/
 │   ├── figma-prompt/
+│   ├── check-dor/                # Definition of Ready check
 │   ├── generate-tasks/
 │   ├── process-tasks/
 │   ├── delivery-metrics/          # NEW: DORA, QA, adoption metrics

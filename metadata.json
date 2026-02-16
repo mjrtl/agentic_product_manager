@@ -4,7 +4,11 @@
   "description": "Complete PM toolkit with 24 skills, 4 agents, hooks, and workflows for Claude Code, Cursor, and OpenCode",
   "author": "Agentic Product Manager Contributors",
   "license": "MIT",
-  "platforms": ["claude-code", "cursor", "opencode"],
+  "platforms": [
+    "claude-code",
+    "cursor",
+    "opencode"
+  ],
   "skills": [
     "skills/pm-copilot",
     "skills/prism-review",
@@ -21,6 +25,7 @@
     "skills/one-pager",
     "skills/design-brief",
     "skills/figma-prompt",
+    "skills/check-dor",
     "skills/generate-tasks",
     "skills/process-tasks",
     "skills/setup-initiative",

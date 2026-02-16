@@ -42,6 +42,7 @@ When a user invokes a slash command or describes a PM task, route to the matchin
 ### Execution
 | Command | Skill | Description |
 |---------|-------|-------------|
+| `/check-dor` | `skills/check-dor/SKILL.md` | Verify Definition of Ready before delivery |
 | `/generate-tasks` | `skills/generate-tasks/SKILL.md` | Create task list from PRD |
 | `/process-tasks` | `skills/process-tasks/SKILL.md` | Work through tasks one by one |
 | `/setup-initiative` | `skills/setup-initiative/SKILL.md` | CPO interrogation, ODD generation, and initiative scaffolding |
@@ -75,6 +76,7 @@ When a user invokes a slash command or describes a PM task, route to the matchin
    - "1-pager" / "one pager" -> `/one-pager`
    - "design brief" -> `/design-brief`
    - "figma" / "make prompt" -> `/figma-prompt`
+   - "definition of ready" / "DoR" / "check dor" / "ready for delivery" -> `/check-dor`
    - "tasks" / "task list" / "break down" -> `/generate-tasks`
    - "process tasks" / "next task" -> `/process-tasks`
    - "meeting notes" / "1:1" -> `/meeting-notes`
@@ -146,7 +148,9 @@ initiatives/[name]/
 ├── 2-definition/
 │   ├── 00-exec-summary.md
 │   ├── 2.1-prd/                (PRDs, 1-pagers, and PR-FAQs)
-│   └── 2.2-design/
+│   ├── 2.2-design/
+│   ├── 2.3-user-story-map/     (required for DoR; summary or link to Notion/Miro)
+│   └── 2.4-metrics/            (optional)
 └── 3-delivery/
     ├── 00-exec-summary.md
     ├── 3.1-tasks/

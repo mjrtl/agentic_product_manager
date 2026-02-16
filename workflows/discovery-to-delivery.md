@@ -16,8 +16,9 @@ The discovery-to-delivery workflow transforms strategy and raw user research int
 
 ```
 Strategy → Setup → Interviews → Snapshots → Synthesis → Opportunities →
-Solutions → Assumptions → PR-FAQ → PRD → Tasks → QA → Metrics → Launch
+Solutions → Assumptions → ODD/PR-FAQ → PRD → User Story Map (2.3) → DoR check → Tasks → QA → Metrics → Launch
 ```
+(Definition of Ready must be met before generating tasks; run `/check-dor <name>`.)
 
 ## Phase 0: Strategy (prerequisite)
 
@@ -59,6 +60,7 @@ These skills can be used at any point during the workflow:
 | `/vision-review` | When evaluating product vision quality |
 | `/okr-coach` | When drafting or revising OKRs |
 | `/team-structure` | When considering org design changes |
+| `/check-dor` | Before generating tasks (verify Definition of Ready) |
 | `/design-brief` | When starting design work on a feature |
 | `/figma-prompt` | When creating Figma prototypes |
 | `/meeting-notes` | During 1:1 meetings |

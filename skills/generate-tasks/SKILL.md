@@ -12,7 +12,8 @@ Create a detailed task list in Markdown format from user requirements or a PRD.
 
 ## When to use
 
-- After a PRD is approved
+- After Definition of Ready is met (run `/check-dor <initiative-name>` if unsure; do not generate tasks if DoR fails)
+- After a PRD (or ODD with user stories) is approved
 - When you have feature requirements ready for implementation
 - Before starting development work
 
